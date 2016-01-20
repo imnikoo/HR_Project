@@ -2,20 +2,27 @@
     padding-bottom: 20px;
     font-family: Verdana;
 }
+footer{
+    padding: 20px !important;
+    font-size:0.7em !important;
+}
 .row{
     margin:0 !important;
 }
-.logorow{
-    height:55px !important;
-}
+
 .logo{
     height:65px;
     align-self:center;
 }
 .logotext{
-    font-size:1.2em;
+    font-size:1.3em;
     font-weight:900;
     color: #616161;
+    line-height:1 !important;
+    font-family: Arial Black, Arial Black, Gadget, sans-serif;
+}
+.setting {
+    color: #424242;
 }
 nav{
     background-color: #00bcd4;
