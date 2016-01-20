@@ -41,6 +41,25 @@ nav{
     border-color: #7cb342;
     border-width:1px;
 }
+.sidecard{
+    min-height: 200px;
+}
+.sidecard span{
+    color: #424242 !important;
+    font-weight:600;
+}
+.eventcoll {
+    opacity:0.8;
+}
+.notecoll{
+        opacity:0.8;
+}
+.maincard{
+    min-height:610px;
+}
+.sidebtn {
+    width:100%;
+}
 footer{
     height:90px;
 }
