@@ -2,14 +2,11 @@
     padding-bottom: 20px;
     font-family: Verdana;
 }
-footer{
-    padding: 20px !important;
-    font-size:0.7em !important;
-}
+
 .row{
     margin:0 !important;
 }
-
+/* Layout */
 .logo{
     height:65px;
     align-self:center;
@@ -34,13 +31,21 @@ nav{
     border-left: solid;
     border-color: #7cb342;
     border-width:1px;
+    width:140px;
 }
 .navtab{
     border-left: solid;
     border-right: solid;
     border-color: #7cb342;
     border-width:1px;
+    width:140px;
 }
+footer{
+    padding: 20px !important;
+    font-size:0.7em !important;
+    height:90px;
+}
+/* Index View */
 .sidecard{
     min-height: 200px;
 }
@@ -60,9 +65,36 @@ nav{
 .sidebtn {
     width:100%;
 }
-footer{
-    height:90px;
+/* Search Candidates View */
+select{
+    display:block !important;
+    height: 2.2rem !important;
+    width: 100% !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid #f2f2f2 !important;
+    border-radius: 2px !important;
+    margin-top:5px !important;
 }
+.inputtext{
+    height: 2.2rem !important;
+    border:solid !important;
+    border-width: 1px !important;
+    width: 99% !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid #f2f2f2 !important;
+    border-radius: 2px !important;
+    color: rgba(111, 111, 111, 1) !important;
+    margin-top:5px !important;
+    margin-bottom: 0 !important;
+}
+.searchbtn{
+    margin-top:20px !important;
+    width:100%;
+}
+.tabbtn{
+    color: #424242;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

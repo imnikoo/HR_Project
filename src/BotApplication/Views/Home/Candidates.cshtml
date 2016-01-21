@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Candidates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col l9 push-l3">
+        <div class="card-panel white maincard">
+            <table class="bordered highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th>№</th>
+                        <th>Full name</th>
+                        <th>Position</th>
+                        <th>Salary</th>
+                        <th>Status</th>
+                        <th>Added</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Соколенко Артем Владимирович</td>
+                        <td>C# developer</td>
+                        <td>300$</td>
+                        <td>Pool</td>
+                        <td>21.01.2016</td>
+                        <th>
+                            <a href="#" class="tabbtn" title="Details"><i class=" material-icons">description</i></a>
+                            <a href="#" class="tabbtn" title="Delit"><i class="material-icons">delete</i></a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Мартынюк Елена Николаевна</td>
+                        <td>C# developer</td>
+                        <td>600$</td>
+                        <td>Pool</td>
+                        <td>22.01.2016</td>
+                        <th>
+                            <a href="#" class="tabbtn" title="Details"><i class=" material-icons">description</i></a>
+                            <a href="#" class="tabbtn" title="Delit"><i class="material-icons">delete</i></a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Биркин Виктор Семенович</td>
+                        <td>C# developer</td>
+                        <td>300$</td>
+                        <td>Pool</td>
+                        <td>21.01.2016</td>
+                        <th>
+                            <a href="#" class="tabbtn" title="Details"><i class=" material-icons">description</i></a>
+                            <a href="#" class="tabbtn" title="Delit"><i class="material-icons">delete</i></a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Баленко Алексей Петрович</td>
+                        <td>C# developer</td>
+                        <td>500$</td>
+                        <td>Selected</td>
+                        <td>25.01.2016</td>
+                        <th>
+                            <a href="#" class="tabbtn" title="Details"><i class=" material-icons">description</i></a>
+                            <a href="#" class="tabbtn" title="Delit"><i class="material-icons">delete</i></a>
+                        </th>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col l3 pull-l9">
+        <a class="waves-effect yellow darken-4 btn sidebtn"><i class="material-icons left">supervisor_account</i>Add Candidate</a>
+        <div class="card-panel light-green lighten-5  sidecard">
+            <span class="card-title black-text">Search candidates</span>
+            @using (Html.BeginForm("#", "#", FormMethod.Post))
+            {
+                @Html.DropDownList("SearchCandidates", new SelectList(new string[] { "In BOT", "In Linkedin", "In job boards" }))               
+            }
+            @using (Html.BeginForm("#", "#", FormMethod.Post))
+            {   
+                @Html.TextBox("FullName", "", new { @class = "inputtext", @placeholder = "Full name"})
+                @Html.TextBox("Position", "", new { @class = "inputtext", @placeholder = "Position"})
+                @Html.DropDownList("Salary", new SelectList(new string[] { "100$", "200$", "300$", "400$", "500$", "600$", "700$", "800$", "900$", "more 900$" }), "Salary")
+                @Html.DropDownList("EmploymentType", new SelectList(new string[] { "Full-time", "Part-time", "Remote", "Practice", "Courses", "Project" }), "EmploymentType")
+                @Html.DropDownList("Gender", new SelectList(new string[] { "Mail", "Femail" }), "Gender")
+                @Html.DropDownList("Experience", new SelectList(new string[] { "No experience", "Least a year", "1-2 years", "2-3 years", "3-4 years", "4-5 years" }), "Experience") 
+                @Html.DropDownList("Location", new SelectList(new string[] { "Dnepropetrovsk", "Lvov", "Zaporozhye", "Berdyansk" }), "Location")
+                @Html.DropDownList("LanguageLevel", new SelectList(new string[] { "Brgginer", "Pre-Intermediate", "Intermediate", "Upper Intermediate", "Advanced", "Fluent"}), "Language Level")
+    <a class="waves-effect yellow darken-4  btn searchbtn"><i class="material-icons left">search</i>Search</a>
+            }
+        </div>
+
+
+    </div>
+</div>
+
+
