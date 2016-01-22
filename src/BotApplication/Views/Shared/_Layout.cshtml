@@ -10,23 +10,26 @@
 </head>
 <body>
     <header>
-        <div class="row light-green lighten-5">
-            <div class="col s12 col m4 offset-m4 col l2 offset-l5"><p class="logotext center-align">ISD</p></div>
+        <div class="fixed-action-btn" style="bottom: 90px; right: 20px;">
+            <a class="btn-floating btn-large amber">
+                <i class="large material-icons">mode_edit</i>
+            </a>
+            <ul>
+                <li><a class="btn-floating light-green darken-2"><i class="material-icons">insert_chart</i></a></li>
+                <li><a class="btn-floating light-green darken-2"><i class="material-icons">format_quote</i></a></li>
+                <li><a class="btn-floating light-green darken-2"><i class="material-icons">publish</i></a></li>
+                <li><a class="btn-floating light-green darken-2"><i class="material-icons">attach_file</i></a></li>
+            </ul>
         </div>
-        <div class="row light-green lighten-5">
-            <div class="col s12 col m4 offset-m4 col l4 offset-l4"><p class="logotext center-align">BASE OF TALENTS</p></div>
-            <div class="col s12 col m5 offset-m2  col l2">
-                <a class="btn-floating btn-small waves-effect waves-light grey"><i class="material-icons">settings</i></a>
-                @Html.ActionLink("Admin settings", "#", "#", new { @class = "setting" })
-            </div>
-            <div class="col s12 col m5 col l2">
-                <a class="btn-floating btn-small waves-effect waves-light grey"><i class="material-icons">perm_identity</i></a>
-                @Html.ActionLink("User Name", "#", "#", new { @class = "setting" })
+        <div class="row light-green darken-2">
+            <div class="col l3 offset-l9 right-align">
+                <a href="#" title="User name">User name</a>
             </div>
         </div>
-        <nav class="light-green lighten-1">
+        
+        <nav class="light-green">
             <div class="nav-wrapper">
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> 
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="side-nav" id="mobile-demo">
                     <li>@Html.ActionLink("Candidates", "#", "#")</li>
                     <li>@Html.ActionLink("Vacancies", "#", "#")</li>
@@ -34,19 +37,29 @@
                     <li>@Html.ActionLink("Calendar", "#", "#")</li>
                 </ul>
                 <div class="row">
-                    <div class="col m5 col l4">
+                    <div class="col l3 offset-l1">
                         <ul id="nav-mobile" class="right hide-on-med-and-down">
                             <li class="navtableft">@Html.ActionLink("Candidates", "#", "#")</li>
                             <li class="navtab">@Html.ActionLink("Vacancies", "#", "#")</li>
                         </ul>
                     </div>
-                    <div class="col m2 col l2 offset-l1 center-align">
-                        <a href="#"><img class="logo" src="~/Content/Images/Logo.png"></a>  
+                    <div class="col l4 center-align">
+                        <a href="#" title="Home">
+                            <p class="center-align">ISD BASE OF TALENTS</p>
+                        </a>
                     </div>
-                    <div class="col m5 col l4 offset-l1">
+                    <div class="col l3">
                         <ul id="nav-mobile" class="left hide-on-med-and-down">
                             <li class="navtableft">@Html.ActionLink("Statistic", "#", "#")</li>
                             <li class="navtab">@Html.ActionLink("Calendar", "#", "#")</li>
+                        </ul>
+                    </div>
+                    <div class="col l1 no-padding">
+                        <a class='dropdown-button btn-flat ' href='#' data-activates='dropdown1'><i class="material-icons settingsicon">settings</i></a>
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="#" class="downmenu">User settings</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" class="downmenu">Admin settings</a></li>
                         </ul>
                     </div>
                 </div>
@@ -58,7 +71,7 @@
 
 @RenderBody()
 
-    <footer class="grey darken-3">
+    <footer class="grey darken-4">
             <div class="row">
                 <div class=" coll 112" >
                     <p class="white-text">

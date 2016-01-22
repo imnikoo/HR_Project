@@ -18,5 +18,9 @@ namespace BotApplication.Controllers
         {
             return View();
         }
+        public ActionResult AddCandidate()
+        {
+            return View();
+        }
 	}
 }

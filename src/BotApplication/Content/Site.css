@@ -1,31 +1,41 @@
-﻿body {
-    padding-bottom: 20px;
+﻿*{
+    margin:0;
+}
+.no-padding{
+    padding:0 !important;
+}
+body {
     font-family: Verdana;
 }
-
+header{
+    margin-bottom: 15px;
+}
 .row{
     margin:0 !important;
 }
 /* Layout */
-.logo{
-    height:65px;
-    align-self:center;
+.downmenu{
+    line-height:10px !important;
+    color:grey !important;
+    font-size: 0.8em !important;
 }
-.logotext{
-    font-size:1.3em;
-    font-weight:900;
-    color: #616161;
-    line-height:1 !important;
-    font-family: Arial Black, Arial Black, Gadget, sans-serif;
+a{
+    color:#212121  !important;
 }
-.setting {
-    color: #424242;
+.settingsicon{
+    padding:3px !important;
+    height:30px !important;
+    line-height:30px !important;
 }
 nav{
     background-color: #00bcd4;
+
     padding-left: 15px;
     padding-right: 15px;
     font-weight:700 !important;
+}
+a.btn{
+    color:white !important;
 }
 .navtableft{
     border-left: solid;
@@ -60,7 +70,7 @@ footer{
         opacity:0.8;
 }
 .maincard{
-    min-height:610px;
+    min-height:720px;
 }
 .sidebtn {
     width:100%;
@@ -93,6 +103,33 @@ select{
 }
 .tabbtn{
     color: #424242;
+}
+.attachbtn{
+    width:50%;
+}
+.candidatephoto{
+    width:70%;
+    align-items:center;
+}
+.inputtextadd{
+    width:100% !important;
+}
+.addtitle{
+    font-size:1.1em;
+    font-weight:500;
+    margin:0;
+    text-align:center;
+
+}
+hr{
+    width:50%;
+    opacity:0.3;
+}
+.btnrow{
+    height:40px;
+}
+.addbtn{
+    width:100%;
 }
 
 /* Set padding to keep content from hitting the edges */

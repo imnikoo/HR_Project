@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "AddCandidate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col l12">
+        <div class="card-panel white">
+            <h1 class="addtitle">Add new candidate</h1>
+            <hr>
+            <div class="row btnrow">
+                <div class="col l4 btnrow">
+                    <a class="waves-effect waves-light light-green darken-2  btn addbtn"><i class="material-icons left">play_for_work</i>Upload resume by link</a>
+                </div>
+                <div class="col l4 btnrow">
+                    <a class="waves-effect waves-light light-green darken-2  btn addbtn"><i class="material-icons left">web</i>Upload resume from file</a>
+                </div>
+                <div class="col l4 btnrow">
+                    <a class="waves-effect waves-light light-green darken-2  btn addbtn"><i class="material-icons left">playlist_add</i>Upload resume from ZIP archive</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-panel white maincard">
+            <div class="row">
+                <div class="col l4">
+                    <img src="~/Content/Images/candidate_1.png" class="materialboxed candidatephoto">
+                    @using (Html.BeginForm("#", "#", FormMethod.Post))
+                    {
+                        @Html.TextBox("FullName", "", new { @class = "inputtext", @placeholder = "Full name" })
+                        @Html.TextBox("Position", "", new { @class = "inputtext", @placeholder = "Position" })
+                        @Html.DropDownList("Salary", new SelectList(new string[] { "100$", "200$", "300$", "400$", "500$", "600$", "700$", "800$", "900$", "more 900$" }), "Salary")
+                        @Html.DropDownList("EmploymentType", new SelectList(new string[] { "Full-time", "Part-time", "Remote", "Practice", "Courses", "Project" }), "EmploymentType")
+                        @Html.DropDownList("Gender", new SelectList(new string[] { "Mail", "Femail" }), "Gender")
+                        @Html.DropDownList("Experience", new SelectList(new string[] { "No experience", "Least a year", "1-2 years", "2-3 years", "3-4 years", "4-5 years" }), "Experience")
+                        @Html.DropDownList("Location", new SelectList(new string[] { "Dnepropetrovsk", "Lvov", "Zaporozhye", "Berdyansk" }), "Location")
+                        @Html.DropDownList("LanguageLevel", new SelectList(new string[] { "Brgginer", "Pre-Intermediate", "Intermediate", "Upper Intermediate", "Advanced", "Fluent" }), "Language Level")
+
+                    }
+                </div>
+                <div class="col l4">
+                    @Html.TextArea("FullName", "", new { @class = "inputtext inputtextadd", @placeholder = "Education" })
+                    @Html.TextArea("FullName", "", new { @class = "inputtextadd", @placeholder = "Education" })
+                </div>
+                <div class="col l4">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

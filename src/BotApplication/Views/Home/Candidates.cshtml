@@ -74,24 +74,24 @@
         </div>
     </div>
     <div class="col l3 pull-l9">
-        <a class="waves-effect yellow darken-4 btn sidebtn"><i class="material-icons left">supervisor_account</i>Add Candidate</a>
-        <div class="card-panel light-green lighten-5  sidecard">
+        <a class="waves-effect waves-light light-green darken-2 btn sidebtn"><i class="material-icons left">supervisor_account</i>Add Candidate</a>
+        <div class="card-panel grey lighten-3  sidecard">
             <span class="card-title black-text">Search candidates</span>
             @using (Html.BeginForm("#", "#", FormMethod.Post))
             {
-                @Html.DropDownList("SearchCandidates", new SelectList(new string[] { "In BOT", "In Linkedin", "In job boards" }))               
+                @Html.DropDownList("SearchCandidates", new SelectList(new string[] { "In BOT", "In Linkedin", "In job boards" }))
             }
             @using (Html.BeginForm("#", "#", FormMethod.Post))
-            {   
-                @Html.TextBox("FullName", "", new { @class = "inputtext", @placeholder = "Full name"})
-                @Html.TextBox("Position", "", new { @class = "inputtext", @placeholder = "Position"})
+            {
+                @Html.TextBox("FullName", "", new { @class = "inputtext", @placeholder = "Full name" })
+                @Html.TextBox("Position", "", new { @class = "inputtext", @placeholder = "Position" })
                 @Html.DropDownList("Salary", new SelectList(new string[] { "100$", "200$", "300$", "400$", "500$", "600$", "700$", "800$", "900$", "more 900$" }), "Salary")
                 @Html.DropDownList("EmploymentType", new SelectList(new string[] { "Full-time", "Part-time", "Remote", "Practice", "Courses", "Project" }), "EmploymentType")
                 @Html.DropDownList("Gender", new SelectList(new string[] { "Mail", "Femail" }), "Gender")
-                @Html.DropDownList("Experience", new SelectList(new string[] { "No experience", "Least a year", "1-2 years", "2-3 years", "3-4 years", "4-5 years" }), "Experience") 
+                @Html.DropDownList("Experience", new SelectList(new string[] { "No experience", "Least a year", "1-2 years", "2-3 years", "3-4 years", "4-5 years" }), "Experience")
                 @Html.DropDownList("Location", new SelectList(new string[] { "Dnepropetrovsk", "Lvov", "Zaporozhye", "Berdyansk" }), "Location")
-                @Html.DropDownList("LanguageLevel", new SelectList(new string[] { "Brgginer", "Pre-Intermediate", "Intermediate", "Upper Intermediate", "Advanced", "Fluent"}), "Language Level")
-    <a class="waves-effect yellow darken-4  btn searchbtn"><i class="material-icons left">search</i>Search</a>
+                @Html.DropDownList("LanguageLevel", new SelectList(new string[] { "Brgginer", "Pre-Intermediate", "Intermediate", "Upper Intermediate", "Advanced", "Fluent" }), "Language Level")
+                <a class="waves-effect waves-light light-green darken-2  btn searchbtn"><i class="material-icons left">search</i>Search</a>
             }
         </div>
 
