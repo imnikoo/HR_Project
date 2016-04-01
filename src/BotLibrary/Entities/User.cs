@@ -19,7 +19,7 @@ namespace BotLibrary.Entities
         public string Skype { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public Location Location { get; set; }
+        public virtual Location Location { get; set; }
         public Role Role { get; set; }
         public List<File> Files { get; set; }
     }

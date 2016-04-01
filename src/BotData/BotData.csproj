@@ -30,11 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,12 +51,14 @@
   <ItemGroup>
     <Compile Include="Abstract\IContext.cs" />
     <Compile Include="DumbData\DummyBotContext.cs" />
-    <Compile Include="DumbData\Repositories\BaseEntityRepository.cs" />
-    <Compile Include="DumbData\Repositories\CandidateRepository.cs" />
-    <Compile Include="DumbData\Repositories\UserRepository.cs" />
-    <Compile Include="DumbData\Repositories\VacancyRepository.cs" />
+    <Compile Include="DumbData\Repositories\DummyBaseEntityRepository.cs" />
+    <Compile Include="DumbData\Repositories\DummyCandidateRepository.cs" />
+    <Compile Include="DumbData\Repositories\DummyUserRepository.cs" />
+    <Compile Include="DumbData\Repositories\DummyVacancyRepository.cs" />
     <Compile Include="DumbData\Storage.cs" />
     <Compile Include="EFData\BOTContext.cs" />
+    <Compile Include="EFData\BOTContextInitializer.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +68,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

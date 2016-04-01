@@ -11,12 +11,12 @@ using BotData.Abstract;
 
 namespace BotData.DumbData.Repositories
 {
-    public class BaseEntityRepository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity, new()
+    public class DummyBaseEntityRepository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity, new()
     {
         protected static IList<TEntity> Collection;
-        protected IContext _context;
+        protected DummyBotContext _context;
 
-        public BaseEntityRepository(IContext context)
+        public DummyBaseEntityRepository(DummyBotContext context)
         {
             _context = context;
         }

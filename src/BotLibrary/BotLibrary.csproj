@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -47,9 +43,9 @@
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Candidate.cs" />
     <Compile Include="Entities\CandidateStageInfo.cs" />
-    <Compile Include="Entities\Setup\City.cs" />
+    <Compile Include="Entities\Enum\Setup\City.cs" />
     <Compile Include="Entities\Comment.cs" />
-    <Compile Include="Entities\Setup\Country.cs" />
+    <Compile Include="Entities\Enum\Setup\Country.cs" />
     <Compile Include="Entities\Enum\CommentType.cs" />
     <Compile Include="Entities\Enum\EntityState.cs" />
     <Compile Include="Entities\Enum\LanguageLevel.cs" />
@@ -61,17 +57,17 @@
     <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\Photo.cs" />
     <Compile Include="Entities\Role.cs" />
-    <Compile Include="Entities\Setup\Department.cs" />
-    <Compile Include="Entities\Setup\EventType.cs" />
-    <Compile Include="Entities\Setup\Experience.cs" />
-    <Compile Include="Entities\Setup\Language.cs" />
-    <Compile Include="Entities\Setup\Room.cs" />
-    <Compile Include="Entities\Setup\Skill.cs" />
-    <Compile Include="Entities\Setup\SocialNetwork.cs" />
-    <Compile Include="Entities\Setup\Source.cs" />
-    <Compile Include="Entities\Setup\Stage.cs" />
-    <Compile Include="Entities\Setup\Team.cs" />
-    <Compile Include="Entities\Setup\VacancyStatus.cs" />
+    <Compile Include="Entities\Enum\Setup\Department.cs" />
+    <Compile Include="Entities\Enum\Setup\EventType.cs" />
+    <Compile Include="Entities\Enum\Setup\Experience.cs" />
+    <Compile Include="Entities\Enum\Setup\Language.cs" />
+    <Compile Include="Entities\Enum\Setup\Room.cs" />
+    <Compile Include="Entities\Enum\Setup\Skill.cs" />
+    <Compile Include="Entities\Enum\Setup\SocialNetwork.cs" />
+    <Compile Include="Entities\Enum\Setup\Source.cs" />
+    <Compile Include="Entities\Enum\Setup\Stage.cs" />
+    <Compile Include="Entities\Enum\Setup\Team.cs" />
+    <Compile Include="Entities\Enum\Setup\VacancyStatus.cs" />
     <Compile Include="Entities\StageInfo.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Vacancy.cs" />
@@ -93,7 +89,7 @@
     <Compile Include="Repositories\IVacancyRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

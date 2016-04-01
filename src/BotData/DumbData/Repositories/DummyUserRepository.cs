@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace BotData.DumbData.Repositories
 {
-    class UserRepository : BaseEntityRepository<User>, IUserRepository
+    class DummyUserRepository : DummyBaseEntityRepository<User>, IUserRepository
     {
-        public UserRepository(IContext context) : base(context)
+        public DummyUserRepository(DummyBotContext context) : base(context)
         {
 
         }

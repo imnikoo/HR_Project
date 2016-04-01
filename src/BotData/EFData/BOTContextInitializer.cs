@@ -1,4 +1,4 @@
-﻿using BotData.Abstract;
+﻿using BotData.DumbData;
 using BotLibrary.Entities;
 using BotLibrary.Entities.Enum;
 using BotLibrary.Entities.Setup;
@@ -6,17 +6,18 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BotData.DumbData
+namespace BotData.EFData
 {
-    public class DummyBotContext
+    public class BOTContextInitializer : DropCreateDatabaseAlways<BOTContext>
     {
-        List<Candidate> _candidates = new List<Candidate>();
-        List<Vacancy> _vacancies = new List<Vacancy>();
-    
-        public DummyBotContext()
+        protected override void Seed(BOTContext context)
         {
             Random r = new Random();
+            List<Candidate> _candidates = new List<Candidate>();
+            List<Vacancy> _vacancies = new List<Vacancy>();
 
             Location _location = new Location()
             {
@@ -210,30 +211,9 @@ namespace BotData.DumbData
                 _vacancyIndex++;
             }
 
-        }
-
-        public IList<Candidate> Candidates
-        {
-            get
-            {
-                return _candidates;
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public IList<Vacancy> Vacancies
-        {
-            get
-            {
-                return _vacancies;
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
+            _candidates.ForEach(x => context.Candidates.Add(x));
+            _vacancies.ForEach(x => context.Vacancies.Add(x));
+            context.SaveChanges();
         }
     }
 }

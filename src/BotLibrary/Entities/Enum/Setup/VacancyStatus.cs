@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace BotLibrary.Entities.Setup
 {
-    public class Source
+
+    public class VacancyStatus: BaseEntity
     {
-        public String Title { get; set; }
-        public String Url { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -1,12 +1,13 @@
 ﻿using BotLibrary.Entities;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace BotData.Abstract
 {
     public interface IContext
     {
-        IList<Candidate> Candidates { get; set; }
-        IList<Vacancy> Vacancies { get; set; }
+        IEnumerable<Candidate> Candidates { get; set; }
+        IEnumerable<Vacancy> Vacancies { get; set; }
     }
 }

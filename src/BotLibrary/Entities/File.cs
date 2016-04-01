@@ -1,15 +1,12 @@
-using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotLibrary.Entities
 {
+    [ComplexType]
     public class File
     {
-        public FileInfo FileInfo { get; set; }
+        public string FilePath { get; set; }
         public string Description { get; set; }
     }
 }

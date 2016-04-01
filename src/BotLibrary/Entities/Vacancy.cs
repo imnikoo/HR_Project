@@ -1,6 +1,5 @@
 using BotLibrary.Entities.Enum;
 using BotLibrary.Entities.Setup;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -12,7 +11,7 @@ namespace BotLibrary.Entities
         public Level Level {get; set;}
         public string Description { get; set; }
         public Department Department { get; set; }
-        public Location Location { get; set; }
+        public virtual Location Location { get; set; }
         public User Responsible { get; set; }
         public List<Skill> RequiredSkills { get; set; }
         public int SalaryMin { get; set; }

@@ -19,9 +19,8 @@ namespace BotWebApi
             GlobalConfiguration.Configure(WebApiConfig.Register);
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<DummyBotContext>().As<IContext>();
-            builder.RegisterType<VacancyRepository>().As<IVacancyRepository>();
-            builder.RegisterType<CandidateRepository>().As<ICandidateRepository>();
+            builder.RegisterType<DummyVacancyRepository>().As<IVacancyRepository>();
+            builder.RegisterType<DummyCandidateRepository>().As<ICandidateRepository>();
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
