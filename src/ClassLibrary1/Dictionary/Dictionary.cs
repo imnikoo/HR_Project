@@ -1,4 +1,5 @@
 ﻿using BotDomain.Entities;
+using BotDomain.Entities.Setup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,20 @@ namespace BotData.Dictionary
             new City { EditTime = DateTime.Now, Country=Countries[0], Name="Kherson" },
             new City { EditTime = DateTime.Now, Country=Countries[0], Name="Poltava" },
             new City { EditTime = DateTime.Now, Country=Countries[0], Name="Chernihiv" },
+        };
+        public static List<Stage> Stages = new List<Stage>
+        {
+            new Stage { EditTime = DateTime.Now, Title="Pool", Description="" },
+            new Stage { EditTime = DateTime.Now, Title="Selected", Description="" },
+            new Stage { EditTime = DateTime.Now, Title="HR Interview", Description="" },
+            new Stage { EditTime = DateTime.Now, Title="Test task", Description="" },
+            new Stage { EditTime = DateTime.Now, Title="Tech Interview", Description="" },
+            new Stage { EditTime = DateTime.Now, Title="Additional interview", Description="" },
+            new Stage { EditTime = DateTime.Now, Title="Final Interview", Description="" },
+            new Stage { EditTime = DateTime.Now, Title="Job Offer Issued", Description="" },
+            new Stage { EditTime = DateTime.Now, Title="Job Offer Accepted", Description="" },
+            new Stage { EditTime = DateTime.Now, Title="Hired", Description="" },
+            new Stage { EditTime = DateTime.Now, Title="Rejected", Description="" },
         };
     }
 }
