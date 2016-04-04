@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BotLibrary.Entities
 {
-    public class StageInfo
+    public class StageInfo : BaseEntity
     {
         public Stage Stage { get; set; }
         public Comment Comment { get; set; }
