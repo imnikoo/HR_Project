@@ -1,34 +1,33 @@
 const CANDIDATE_URL = 'candidates/';
+let _HttpService;
 
 export default class CandidateService {
-    constructor(HttpService) {
-        'ngInject';
-        this.HttpService = HttpService;
-    }
+   constructor(HttpService) {
+      'ngInject';
+      _HttpService = HttpService;
+   }
 
-    getCandidates() {
-		  var additionalUrl = CANDIDATE_URL;
-        return this.HttpService.get(additionalUrl);
-    }
-	
-	 getCandidate(id) {
-		  var additionalUrl = CANDIDATE_URL + id;
-        return this.HttpService.get(additionalUrl);
-    }
-	
-	 saveCandidate(entity){
-		 if(entity.Id !== undefined){
-			 var additionalUrl = CANDIDATE_URL + entity.Id;
-			 return this.HttpService.put(additionalUrl, entity);
-		 }
-		 else{
-			 var additionalUrl =  CANDIDATE_URL;
-			 return this.HttpService.post(additionalUrl, entity);
-		 }
-	 }
+   getCandidates() {
+      return _HttpService.get(CANDIDATE_URL);
+   }
 
-	 deleteCandidate(entity) {
-		 var additionalUrl = CANDIDATE_URL + entity.Id;
-		 this.HttpService.remove(additionalUrl, entity);
-    }
+   getCandidate(id) {
+      var additionalUrl = CANDIDATE_URL + id;
+      return _HttpService.get(additionalUrl);
+   }
+
+   saveCandidate(entity) {
+      if (entity.Id !== undefined) {
+         var additionalUrl = CANDIDATE_URL + entity.Id;
+         return _HttpService.put(additionalUrl, entity);
+      }
+      else {
+         return _HttpService.post(CANDIDATE_URL, entity);
+      }
+   }
+
+   deleteCandidate(entity) {
+      var additionalUrl = CANDIDATE_URL + entity.Id;
+      _HttpService.remove(additionalUrl, entity);
+   }
 }

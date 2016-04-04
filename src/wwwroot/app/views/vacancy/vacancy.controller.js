@@ -1,16 +1,14 @@
 export default function VacancyController($scope, VacancyService) {
-    'ngInject';
+   'ngInject';
 
-    var vm = $scope;
-    vm.vacancy = {};
-	 vm.addVacancy = addVacancy;
+   var vm = $scope;
+   vm.saveVacancy = saveVacancy;
 
-    function addVacancy(title, status, location) {
-        vm.vacancy.vacancyStatus = {};
-        vm.vacancy.location = {};
-		  vm.vacancy.name = title;
-        vm.vacancy.vacancyStatus.title = status;
-		  vm.vacancy.location.city = location;
-        VacancyService.saveVacancy(vm.vacancy);
-    }
+   function saveVacancy() {
+      VacancyService.saveVacancy(vm.vacancy).catch(_onError);
+   }
+
+   function _onError(message) {
+      vm.errorMessage = 'Sorry! Some error occurred';
+   }
 }
