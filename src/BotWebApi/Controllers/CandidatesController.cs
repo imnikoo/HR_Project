@@ -23,25 +23,23 @@ namespace BotWebApi.Controllers
         [HttpGet]
         public HttpResponseMessage All()
         {
-            var candidates = _candidateRepository.GetAll();
-            //var dtoCandidates =.Select(x => DTOService.CandidateToDTO(x));
-            int k = 0;
-            return new HttpResponseMessage();
-            /*return new HttpResponseMessage()
+            var candidates = _candidateRepository.GetAll().ToList();
+            var dtoCandidates = candidates.Select(x => DTOService.CandidateToDTO(x)).ToList<CandidateDTO>();
+            return new HttpResponseMessage()
             {
                 StatusCode = HttpStatusCode.OK,
                 Content = new StringContent(JsonConvert.SerializeObject(dtoCandidates, Formatting.Indented, new JsonSerializerSettings
                 {
                     DateFormatString = "yyyy-MM-dd"
                 })),
-            };*/
+            };
         }
 
         [HttpGet]
         public HttpResponseMessage Get(int id)
         {
             HttpResponseMessage response;
-            var foundedCandidate = _candidateRepository.FindBy(x => x.Id == id).FirstOrDefault();
+            var foundedCandidate = _candidateRepository.Get(id);
             if (foundedCandidate!=null)
             {
                 var foundedCandidateDto = DTOService.CandidateToDTO(foundedCandidate);
@@ -66,7 +64,7 @@ namespace BotWebApi.Controllers
         public HttpResponseMessage VacanciesProgress(int candidateId)
         {
             HttpResponseMessage response;
-            var foundedCandidate = _candidateRepository.FindBy(x => x.Id == candidateId).FirstOrDefault();
+            var foundedCandidate = _candidateRepository.Get(candidateId);
             if (foundedCandidate!=null)
             {
                 var foundedCandidateDto = DTOService.CandidateToDTO(foundedCandidate);
@@ -93,7 +91,7 @@ namespace BotWebApi.Controllers
         public HttpResponseMessage Delete(int id)
         {
             HttpResponseMessage response;
-            var foundedCandidate = _candidateRepository.FindBy(x => x.Id == id).FirstOrDefault();
+            var foundedCandidate = _candidateRepository.Get(id);
             if(foundedCandidate != null)
             {
                 _candidateRepository.Remove(foundedCandidate);
@@ -139,7 +137,5 @@ namespace BotWebApi.Controllers
             }
             return response;
         }
-
     }
-
 }

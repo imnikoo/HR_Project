@@ -28,6 +28,7 @@ namespace BotWebApi.DTO.DTOModels
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public DateTime DeadlineDate { get; set; }
+        [JsonIgnore]
         public List<VacancyStageInfo> CandidatesProgress { get; set; }
         public Vacancy ParentVacancy { get; set; }
         public List<File> Files { get; set; }

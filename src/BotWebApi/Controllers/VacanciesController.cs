@@ -26,7 +26,7 @@ namespace BotWebApi.Controllers
         [HttpGet]
         public HttpResponseMessage All()
         {
-            var vacanciesDto = _vacancyRepository.GetAll().Select(x => DTOService.VacancyToDTO(x));
+            var vacanciesDto = _vacancyRepository.GetAll().Select(x => DTOService.VacancyToDTO(x)).ToList();
             return new HttpResponseMessage()
             {
                 StatusCode = HttpStatusCode.OK,
@@ -41,7 +41,7 @@ namespace BotWebApi.Controllers
         public HttpResponseMessage Get(int id)
         {
             HttpResponseMessage response;
-            var foundedVacancy = _vacancyRepository.FindBy(x => x.Id == id).FirstOrDefault();
+            var foundedVacancy = _vacancyRepository.Get(id);
             if (foundedVacancy != null)
             {
                 var foundedVacancyDto = DTOService.VacancyToDTO(foundedVacancy);
@@ -66,7 +66,7 @@ namespace BotWebApi.Controllers
         public HttpResponseMessage VacanciesProgress(int vacancyId)
         {
             HttpResponseMessage response;
-            var foundedVacancy = _vacancyRepository.FindBy(x => x.Id == vacancyId).FirstOrDefault();
+            var foundedVacancy = _vacancyRepository.Get(vacancyId);
             if (foundedVacancy!=null)
             {
                 response = new HttpResponseMessage()
@@ -89,7 +89,7 @@ namespace BotWebApi.Controllers
         public HttpResponseMessage Delete(int id)
         {
             HttpResponseMessage response;
-            var foundedVacancy = _vacancyRepository.FindBy(x => x.Id == id).FirstOrDefault();
+            var foundedVacancy = _vacancyRepository.Get(id);
             if (foundedVacancy != null)
             {
                 _vacancyRepository.Remove(foundedVacancy);

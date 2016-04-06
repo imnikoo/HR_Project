@@ -61,9 +61,9 @@
     <Compile Include="EFData\Repositories\EFBaseEntityRepository.cs" />
     <Compile Include="EFData\Repositories\EFCandidateRepository.cs" />
     <Compile Include="EFData\Repositories\EFVacancyRepository.cs" />
-    <Compile Include="Migrations\201604061253341_init.cs" />
-    <Compile Include="Migrations\201604061253341_init.Designer.cs">
-      <DependentUpon>201604061253341_init.cs</DependentUpon>
+    <Compile Include="Migrations\201604061506228_init.cs" />
+    <Compile Include="Migrations\201604061506228_init.Designer.cs">
+      <DependentUpon>201604061506228_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,8 +79,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604061253341_init.resx">
-      <DependentUpon>201604061253341_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604061506228_init.resx">
+      <DependentUpon>201604061506228_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

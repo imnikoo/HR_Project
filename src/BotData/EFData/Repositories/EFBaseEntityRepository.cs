@@ -12,6 +12,5 @@ namespace BotData.EFData.Repositories
     public class EFBaseEntityRepository
     {
         protected BOTContext _context = new BOTContext();
-
     }
 }

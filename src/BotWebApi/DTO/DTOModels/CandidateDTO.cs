@@ -47,6 +47,7 @@ namespace BotWebApi.DTO.DTOModels
         public string Education { get; set; }
         public virtual List<LanguageSkill> LanguageSkills { get; set; }
         public virtual List<File> Files { get; set; }
+        [JsonIgnore]
         public virtual List<VacancyStageInfo> VacanciesProgress { get; set; }
         public virtual List<Comment> Comments { get; set; }
         public virtual List<CandidateSource> Sources { get; set; }

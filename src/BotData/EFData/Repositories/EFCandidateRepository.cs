@@ -22,6 +22,11 @@ namespace BotData.EFData.Repositories
             return _context.Candidates.Where(predicate);
         }
 
+        public Candidate Get(int id)
+        {
+            return _context.Candidates.FirstOrDefault(x => x.Id == id);
+        }
+
         public IQueryable<Candidate> GetAll()
         {
             return _context.Candidates.AsQueryable();
@@ -29,9 +34,8 @@ namespace BotData.EFData.Repositories
 
         public void Remove(Candidate entity)
         {
-            var attachedEntity = _context.Candidates.Attach(entity);
-            attachedEntity.State = BotLibrary.Entities.Enum.EntityState.Inactive;
-            _context.Entry(attachedEntity).State = System.Data.Entity.EntityState.Modified;
+            entity.State = BotLibrary.Entities.Enum.EntityState.Inactive;
+            _context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
         }
 

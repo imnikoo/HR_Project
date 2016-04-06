@@ -18,7 +18,7 @@ namespace BotData.Migrations
 
         protected override void Seed(BotData.EFData.BOTContext context)
         {
-            #region Candidate
+           #region Candidate
             Comment candidateComment = new Comment()
             {
                 CommentType = CommentType.Candidate,
@@ -235,6 +235,9 @@ namespace BotData.Migrations
             context.Vacancies.Add(vacancy);
             context.Candidates.Add(candidate);
             context.SaveChanges();
+
+
+
         }
     }
 }

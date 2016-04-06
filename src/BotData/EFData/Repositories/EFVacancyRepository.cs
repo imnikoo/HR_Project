@@ -22,6 +22,11 @@ namespace BotData.EFData.Repositories
             return _context.Vacancies.Where(predicate);
         }
 
+        public Vacancy Get(int id)
+        {
+            return _context.Vacancies.FirstOrDefault(x => x.Id == id);
+        }
+
         public IQueryable<Vacancy> GetAll()
         {
             return _context.Vacancies.AsQueryable();
