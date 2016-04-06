@@ -14,7 +14,7 @@ namespace BotData.DumbData
         List<Candidate> _candidates = new List<Candidate>();
         List<Vacancy> _vacancies = new List<Vacancy>();
     
-        public DummyBotContext()
+       /* public DummyBotContext()
         {
             Random r = new Random();
 
@@ -39,8 +39,8 @@ namespace BotData.DumbData
                         {
                             Id = 1,
                             EditTime = DateTime.Now,
-                            Name = "English",
-                            LanguageLevel = LanguageLevel.Fluent
+                            State = BotLibrary.Entities.Enum.EntityState.Active,
+                            Title = "lang"
                         }
                     };
             List<Skill> _skills = new List<Skill>()
@@ -49,23 +49,32 @@ namespace BotData.DumbData
                  {
                      Id = 1,
                      EditTime = DateTime.Now,
-                     Title = "Stress blocker"
+                     Title = "Stress blocker",
+                     State = BotLibrary.Entities.Enum.EntityState.Active
                  }
             };
+            Permission _permission = new Permission()
+            {
+                Id = 1,
+                EditTime = DateTime.Now,
+                Role = null,
+                Description = "Can do anything"
+            };
+
             Role _adminRole = new Role()
             {
                 Id = 1,
                 EditTime = DateTime.Now,
                 Name = "Admin",
+                Permissions = new List<Permission>() { _permission },
+                State = BotLibrary.Entities.Enum.EntityState.Active,
             };
-
-            Permission _permission = new Permission()
+            
+            Photo _photo = new Photo()
             {
-                Id = 1,
-                EditTime = DateTime.Now,
-                Role = _adminRole,
-                Description = "Can do anything"
-            };
+                Description = "my cat",
+                ImagePath = "path"
+            }
 
             User _user = new User()
             {
@@ -75,7 +84,18 @@ namespace BotData.DumbData
                 Password = "admin",
                 Role = _adminRole,
                 Location = _location,
+                BirthDate = DateTime.Now,
+                State = BotLibrary.Entities.Enum.EntityState.Active,
+                Email = "email",
+                FirstName = "fnmame",
+                isMale = true,
+                LastName = "lname",
+                MiddleName = "mname",
+                PhoneNumbers = new List<string>( ) { "98309382231"},
+                Photo = _photo,
+                Skype = "skype"
             };
+
 
             for (int i = 1; i <= 20; i++)
             {
@@ -84,37 +104,19 @@ namespace BotData.DumbData
                     Id = i,
                     EditTime = DateTime.Now,
                     DeadlineDate = DateTime.Now.AddMonths(i),
-                    Department = new Department()
-                    {
-                        Id = i,
-                        EditTime = DateTime.Now,
-                        Title = "Deratment Number" + i,
-                    },
+                    CandidatesProgress = new List<VacancyStageInfo>() {  }
                     Description = "Junior Arcihtech " + i,
                     EndDate = DateTime.MinValue,
-                    IsDeadlineAddedToCalendar = i % 2 == 0 ? true : false,
                     Level = Level.Junior,
                     Location = _location,
-                    Name = "Junior Arcihtech " + i,
-                    RequiredLanguages = _languages,
                     RequiredSkills = _skills,
                     Responsible = _user,
                     SalaryMax = 1000,
                     SalaryMin = 500,
                     StartDate = DateTime.Now,
-                    Status = new VacancyStatus()
-                    {
-                        Id = 1,
-                        EditTime = DateTime.Now,
-                        Description = "First status",
-                        Title = "Start",
-                    },
                     TypeOfEmployment = TypeOfEmployment.FullTime,
-                    ChildredVacanciesCount = 0,
                     Comments = new List<Comment>(),
                     Files = new List<File>(),
-                    MasterVacancy = false,
-                    CandidatesProgress = new List<CandidateStageInfo>()
                 });
             }
             int _nameIndex = 0;
@@ -210,7 +212,7 @@ namespace BotData.DumbData
                 _vacancyIndex++;
             }
 
-        }
+        }*/
 
         public IList<Candidate> Candidates
         {

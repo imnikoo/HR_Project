@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace BotLibrary.Entities
 {
-    [ComplexType]
     public class Photo
     {
         public string ImagePath { get; set; }

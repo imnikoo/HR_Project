@@ -23,8 +23,8 @@ namespace BotWebApi.DTO
                 Experience = candidate.Experience,
                 Files = candidate.Files,
                 FirstName = candidate.FirstName,
-                Gender = candidate.Gender,
-                Languages = candidate.Languages,
+                IsMale = candidate.IsMale,
+                LanguageSkills = candidate.LanguageSkills,
                 LastName = candidate.LastName,
                 Location = candidate.Location,
                 MiddleName = candidate.MiddleName,
@@ -39,7 +39,8 @@ namespace BotWebApi.DTO
                 SocialNetworks = candidate.SocialNetworks,
                 Sources = candidate.Sources,
                 TypeOfEmployment = candidate.TypeOfEmployment,
-                VacanciesProgress = candidate.VacanciesProgress
+                VacanciesProgress = candidate.VacanciesProgress,
+                State = candidate.State
             }; 
         }
         public static Candidate DTOToCandidate(CandidateDTO dto)
@@ -56,8 +57,8 @@ namespace BotWebApi.DTO
                 Experience = dto.Experience,
                 Files = dto.Files,
                 FirstName = dto.FirstName,
-                Gender = dto.Gender,
-                Languages = dto.Languages,
+                IsMale = dto.IsMale,
+                LanguageSkills = dto.LanguageSkills,
                 LastName = dto.LastName,
                 Location = dto.Location,
                 MiddleName = dto.MiddleName,
@@ -72,34 +73,33 @@ namespace BotWebApi.DTO
                 SocialNetworks = dto.SocialNetworks,
                 Sources = dto.Sources,
                 TypeOfEmployment = dto.TypeOfEmployment,
-                VacanciesProgress = dto.VacanciesProgress
+                VacanciesProgress = dto.VacanciesProgress,
+                State = dto.State
             };
         }
         public static VacancyDTO VacancyToDTO(Vacancy vacancy)
         {
             return new VacancyDTO() {
                 CandidatesProgress = vacancy.CandidatesProgress,
-                ChildredVacanciesCount = vacancy.ChildredVacanciesCount,
+                State = vacancy.State,
                 Comments = vacancy.Comments,
                 DeadlineDate = vacancy.DeadlineDate,
-                Department = vacancy.Department,
+                LanguageSkill = vacancy.LanguageSkill,
                 Description = vacancy.Description,
                 EditTime = vacancy.EditTime,
                 EndDate = vacancy.EndDate,
                 Files = vacancy.Files,
                 Id = vacancy.Id,
-                IsDeadlineAddedToCalendar = vacancy.IsDeadlineAddedToCalendar,
+                ParentVacancy = vacancy.ParentVacancy,
                 Level = vacancy.Level,
                 Location = vacancy.Location,
-                MasterVacancy = vacancy.MasterVacancy,
-                Name = vacancy.Name,
-                RequiredLanguages = vacancy.RequiredLanguages,
+                Team = vacancy.Team,
+                Title = vacancy.Title,
                 RequiredSkills = vacancy.RequiredSkills,
                 Responsible = vacancy.Responsible,
                 SalaryMax = vacancy.SalaryMax,
                 SalaryMin = vacancy.SalaryMin,
                 StartDate = vacancy.StartDate,
-                Status = vacancy.Status,
                 TypeOfEmployment = vacancy.TypeOfEmployment
             };
         }
@@ -108,27 +108,25 @@ namespace BotWebApi.DTO
             return new Vacancy()
             {
                 CandidatesProgress = vacancy.CandidatesProgress,
-                ChildredVacanciesCount = vacancy.ChildredVacanciesCount,
+                Title = vacancy.Title,
+                Team = vacancy.Team,
+                ParentVacancy = vacancy.ParentVacancy,
+                LanguageSkill = vacancy.LanguageSkill,
+                State = vacancy.State,
                 Comments = vacancy.Comments,
                 DeadlineDate = vacancy.DeadlineDate,
-                Department = vacancy.Department,
                 Description = vacancy.Description,
                 EditTime = vacancy.EditTime,
                 EndDate = vacancy.EndDate,
                 Files = vacancy.Files,
                 Id = vacancy.Id,
-                IsDeadlineAddedToCalendar = vacancy.IsDeadlineAddedToCalendar,
                 Level = vacancy.Level,
                 Location = vacancy.Location,
-                MasterVacancy = vacancy.MasterVacancy,
-                Name = vacancy.Name,
-                RequiredLanguages = vacancy.RequiredLanguages,
                 RequiredSkills = vacancy.RequiredSkills,
                 Responsible = vacancy.Responsible,
                 SalaryMax = vacancy.SalaryMax,
                 SalaryMin = vacancy.SalaryMin,
                 StartDate = vacancy.StartDate,
-                Status = vacancy.Status,
                 TypeOfEmployment = vacancy.TypeOfEmployment
             };
         }

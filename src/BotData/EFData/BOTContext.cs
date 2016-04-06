@@ -1,12 +1,8 @@
-﻿using BotData.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using BotLibrary.Entities;
 using BotLibrary.Entities.Setup;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace BotData.EFData
 {
@@ -21,9 +17,8 @@ namespace BotData.EFData
         public DbSet<Candidate>  Candidates { get; set; }
         public DbSet<Vacancy> Vacancies { get; set; }
 
-        public BOTContext() : base("DbConnection")
+        public BOTContext() : base("name=BOTContext")
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<BOTContext>());
         }
     }
 }

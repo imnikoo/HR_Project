@@ -10,6 +10,7 @@ namespace BotLibrary.Entities.Enum
     {
         Candidate,
         Vacancy,
-        StageInfo
+        StageInfo,
+        Note
     }
 }

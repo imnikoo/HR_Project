@@ -11,7 +11,7 @@ namespace BotLibrary.Entities
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
-        public bool Gender { get; set; }
+        public bool isMale { get; set; }
         public DateTime BirthDate { get; set; }
         public Photo Photo { get; set; }
         public List<string> PhoneNumbers { get; set; }
@@ -21,6 +21,5 @@ namespace BotLibrary.Entities
         public string Password { get; set; }
         public virtual Location Location { get; set; }
         public Role Role { get; set; }
-        public List<File> Files { get; set; }
     }
 }

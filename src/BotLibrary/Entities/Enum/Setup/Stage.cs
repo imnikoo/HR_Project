@@ -9,6 +9,5 @@ namespace BotLibrary.Entities.Setup
     public class Stage : BaseEntity
     {
         public string Title { get; set; }
-        public string Description { get; set; }
     }
 }

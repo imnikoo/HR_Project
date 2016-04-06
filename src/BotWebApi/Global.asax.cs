@@ -3,6 +3,7 @@ using Autofac.Integration.WebApi;
 using BotData.Abstract;
 using BotData.DumbData;
 using BotData.DumbData.Repositories;
+using BotData.EFData.Repositories;
 using BotLibrary.Repositories;
 using System.Reflection;
 using System.Web.Http;
@@ -19,8 +20,8 @@ namespace BotWebApi
             GlobalConfiguration.Configure(WebApiConfig.Register);
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<DummyVacancyRepository>().As<IVacancyRepository>();
-            builder.RegisterType<DummyCandidateRepository>().As<ICandidateRepository>();
+            builder.RegisterType<EFVacancyRepository>().As<IVacancyRepository>();
+            builder.RegisterType<EFCandidateRepository>().As<ICandidateRepository>();
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BotLibrary.Entities.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,8 @@ namespace BotLibrary.Entities
 {
     public class Permission : BaseEntity
     {
-        public Role Role { get; set; }
+        public virtual Role Role { get; set; }
         public string Description { get; set; }
+        public AccessRights AccessRights { get; set; }
     }
 }

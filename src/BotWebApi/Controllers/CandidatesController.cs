@@ -23,15 +23,18 @@ namespace BotWebApi.Controllers
         [HttpGet]
         public HttpResponseMessage All()
         {
-            var dtoCandidates = _candidateRepository.GetAll().Select(x => DTOService.CandidateToDTO(x));
-            return new HttpResponseMessage()
+            var candidates = _candidateRepository.GetAll();
+            //var dtoCandidates =.Select(x => DTOService.CandidateToDTO(x));
+            int k = 0;
+            return new HttpResponseMessage();
+            /*return new HttpResponseMessage()
             {
                 StatusCode = HttpStatusCode.OK,
                 Content = new StringContent(JsonConvert.SerializeObject(dtoCandidates, Formatting.Indented, new JsonSerializerSettings
                 {
                     DateFormatString = "yyyy-MM-dd"
                 })),
-            };
+            };*/
         }
 
         [HttpGet]

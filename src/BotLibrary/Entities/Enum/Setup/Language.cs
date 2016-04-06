@@ -9,7 +9,6 @@ namespace BotLibrary.Entities.Setup
 {
     public class Language: BaseEntity
     {
-        public string Name { get; set; }
-        public LanguageLevel LanguageLevel { get; set; }
+        public string Title { get; set; }
     }
 }

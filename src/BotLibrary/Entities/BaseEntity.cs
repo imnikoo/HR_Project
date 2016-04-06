@@ -9,6 +9,13 @@ namespace BotLibrary.Entities
 {
     public class BaseEntity
     {
+        public BaseEntity()
+        {
+            EditTime = DateTime.Now;
+            State = EntityState.Active;
+        }
+
+
         public int Id { get; set; }
         public DateTime EditTime { get; set; }
         public EntityState State { get; set; }

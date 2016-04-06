@@ -7,7 +7,7 @@ namespace BotLibrary.Entities.Setup
 {
     public class City : BaseEntity
     {
-        public Country Country { get; set; }
         public string Name { get; set; }
+        public virtual Country Country { get; set; }
     }
 }

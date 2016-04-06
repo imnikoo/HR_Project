@@ -8,7 +8,13 @@ namespace BotLibrary.Entities.Enum
 {
     public enum EntityState
     {
-        Active = 0,
-        Deleted = 1
+        Active,
+        Inactive,
+        Verfied,
+        Unverified,
+        Open,
+        Processing,
+        Closed,
+        Cancelled,
     }
 }

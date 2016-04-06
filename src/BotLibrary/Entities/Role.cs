@@ -8,6 +8,6 @@ namespace BotLibrary.Entities
     public class Role : BaseEntity
     {
         public string Name { get; set; }
-        public int PermissionId { get; set; }
+        public virtual List<Permission> Permissions { get; set; }
     }
 }

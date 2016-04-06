@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BotLibrary.Entities.Setup
 {
-    public class Country: BaseEntity
+    public class Country : BaseEntity
     {
         public string Name { get; set; }
     }

@@ -9,5 +9,6 @@ namespace BotLibrary.Entities.Setup
     public class Team: BaseEntity
     {
         public string Title {get; set;}
+        public Department Department { get; set; }
     }
 }

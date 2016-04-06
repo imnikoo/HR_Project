@@ -5,12 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BotLibrary.Entities.Setup
+namespace BotLibrary.Entities.Enum
 {
-    [ComplexType]
-    public class Source
+    public enum Source
     {
-        public String Title { get; set; }
-        public String Url { get; set; }
+        LinkedIn,
+        Vkontakte,
+        Djinni,
+        RabotaUa,
+        WorkUa,
+        HeadHunter
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BotLibrary.Entities.Enum;
+using BotLibrary.Entities.Setup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace BotLibrary.Entities
 {
-    public class Comment : BaseEntity
+    public class LanguageSkill : BaseEntity
     {
-        public string Message { get; set; }
-        public CommentType CommentType { get; set; }
-        public int RelativeId { get; set; }
+        public Language Language { get; set; }
+        public LanguageLevel LanguageLevel { get; set; }
     }
 }
