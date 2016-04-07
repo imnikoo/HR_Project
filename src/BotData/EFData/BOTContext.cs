@@ -17,6 +17,8 @@ namespace BotData.EFData
         public DbSet<Candidate>  Candidates { get; set; }
         public DbSet<Vacancy> Vacancies { get; set; }
 
+        public DbSet<City> Cities { get; set; }
+
         public BOTContext() : base()
         {
         }

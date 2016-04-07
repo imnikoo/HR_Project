@@ -13,7 +13,7 @@ namespace BotData.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201604061506228_init"; }
+            get { return "201604070742372_init"; }
         }
         
         string IMigrationMetadata.Source

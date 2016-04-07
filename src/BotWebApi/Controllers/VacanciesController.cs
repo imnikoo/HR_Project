@@ -17,7 +17,6 @@ namespace BotWebApi.Controllers
     public class VacanciesController : ApiController
     {
         IVacancyRepository _vacancyRepository;
-
         public VacanciesController(IVacancyRepository vacancyRepository)
         {
             _vacancyRepository = vacancyRepository;

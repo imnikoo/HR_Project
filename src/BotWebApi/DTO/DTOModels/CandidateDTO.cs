@@ -41,7 +41,7 @@ namespace BotWebApi.DTO.DTOModels
         public string Practice { get; set; }
         public Experience Experience { get; set; }
         public string Description { get; set; }
-        public virtual Location Location { get; set; }
+        public virtual City City { get; set; }
         public bool RelocationAgreement { get; set; }
         public virtual List<CandidateSocial> SocialNetworks { get; set; }
         public string Education { get; set; }

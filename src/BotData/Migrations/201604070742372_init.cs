@@ -30,15 +30,38 @@ namespace BotData.Migrations
                         Education = c.String(),
                         EditTime = c.DateTime(nullable: false),
                         State = c.Int(nullable: false),
+                        City_Id = c.Int(),
                         Experience_Id = c.Int(),
-                        Location_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Cities", t => t.City_Id)
                 .ForeignKey("dbo.Experiences", t => t.Experience_Id)
-                .ForeignKey("dbo.Locations", t => t.Location_Id)
-                .Index(t => t.Experience_Id)
-                .Index(t => t.Location_Id);
+                .Index(t => t.City_Id)
+                .Index(t => t.Experience_Id);
             
+            CreateTable(
+                "dbo.Cities",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        EditTime = c.DateTime(nullable: false),
+                        State = c.Int(nullable: false),
+                        Country_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Countries", t => t.Country_Id)
+                .Index(t => t.Country_Id);
+            CreateTable(
+                "dbo.Countries",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        EditTime = c.DateTime(nullable: false),
+                        State = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             CreateTable(
                 "dbo.Comments",
                 c => new
@@ -110,44 +133,6 @@ namespace BotData.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(),
-                        EditTime = c.DateTime(nullable: false),
-                        State = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.Locations",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        EditTime = c.DateTime(nullable: false),
-                        State = c.Int(nullable: false),
-                        City_Id = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Cities", t => t.City_Id)
-                .Index(t => t.City_Id);
-            
-            CreateTable(
-                "dbo.Cities",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        EditTime = c.DateTime(nullable: false),
-                        State = c.Int(nullable: false),
-                        Country_Id = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Countries", t => t.Country_Id)
-                .Index(t => t.Country_Id);
-            
-            CreateTable(
-                "dbo.Countries",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
                         EditTime = c.DateTime(nullable: false),
                         State = c.Int(nullable: false),
                     })
@@ -281,20 +266,20 @@ namespace BotData.Migrations
                         DeadlineDate = c.DateTime(nullable: false),
                         EditTime = c.DateTime(nullable: false),
                         State = c.Int(nullable: false),
+                        City_Id = c.Int(),
                         LanguageSkill_Id = c.Int(),
-                        Location_Id = c.Int(),
                         ParentVacancy_Id = c.Int(),
                         Responsible_Id = c.Int(),
                         Team_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Cities", t => t.City_Id)
                 .ForeignKey("dbo.LanguageSkills", t => t.LanguageSkill_Id)
-                .ForeignKey("dbo.Locations", t => t.Location_Id)
                 .ForeignKey("dbo.Vacancies", t => t.ParentVacancy_Id)
                 .ForeignKey("dbo.Users", t => t.Responsible_Id)
                 .ForeignKey("dbo.Teams", t => t.Team_Id)
+                .Index(t => t.City_Id)
                 .Index(t => t.LanguageSkill_Id)
-                .Index(t => t.Location_Id)
                 .Index(t => t.ParentVacancy_Id)
                 .Index(t => t.Responsible_Id)
                 .Index(t => t.Team_Id);
@@ -317,13 +302,13 @@ namespace BotData.Migrations
                         Password = c.String(),
                         EditTime = c.DateTime(nullable: false),
                         State = c.Int(nullable: false),
-                        Location_Id = c.Int(),
+                        City_Id = c.Int(),
                         Role_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Locations", t => t.Location_Id)
+                .ForeignKey("dbo.Cities", t => t.City_Id)
                 .ForeignKey("dbo.Roles", t => t.Role_Id)
-                .Index(t => t.Location_Id)
+                .Index(t => t.City_Id)
                 .Index(t => t.Role_Id);
             
             CreateTable(
@@ -388,13 +373,13 @@ namespace BotData.Migrations
             DropForeignKey("dbo.Vacancies", "Responsible_Id", "dbo.Users");
             DropForeignKey("dbo.Users", "Role_Id", "dbo.Roles");
             DropForeignKey("dbo.Permissions", "Role_Id", "dbo.Roles");
-            DropForeignKey("dbo.Users", "Location_Id", "dbo.Locations");
+            DropForeignKey("dbo.Users", "City_Id", "dbo.Cities");
             DropForeignKey("dbo.Skills", "Vacancy_Id", "dbo.Vacancies");
             DropForeignKey("dbo.Vacancies", "ParentVacancy_Id", "dbo.Vacancies");
-            DropForeignKey("dbo.Vacancies", "Location_Id", "dbo.Locations");
             DropForeignKey("dbo.Vacancies", "LanguageSkill_Id", "dbo.LanguageSkills");
             DropForeignKey("dbo.Files", "Vacancy_Id", "dbo.Vacancies");
             DropForeignKey("dbo.Comments", "Vacancy_Id", "dbo.Vacancies");
+            DropForeignKey("dbo.Vacancies", "City_Id", "dbo.Cities");
             DropForeignKey("dbo.VacancyStageInfoes", "Vacancy_Id", "dbo.Vacancies");
             DropForeignKey("dbo.VacancyStages", "Stage_Id", "dbo.Stages");
             DropForeignKey("dbo.VacancyStageInfoes", "Comment_Id", "dbo.Comments");
@@ -403,23 +388,22 @@ namespace BotData.Migrations
             DropForeignKey("dbo.CandidateSocials", "Candidate_Id", "dbo.Candidates");
             DropForeignKey("dbo.CandidateSocials", "SocialNetwork_Id", "dbo.SocialNetworks");
             DropForeignKey("dbo.Skills", "Candidate_Id", "dbo.Candidates");
-            DropForeignKey("dbo.Candidates", "Location_Id", "dbo.Locations");
-            DropForeignKey("dbo.Locations", "City_Id", "dbo.Cities");
-            DropForeignKey("dbo.Cities", "Country_Id", "dbo.Countries");
             DropForeignKey("dbo.LanguageSkills", "Candidate_Id", "dbo.Candidates");
             DropForeignKey("dbo.LanguageSkills", "Language_Id", "dbo.Languages");
             DropForeignKey("dbo.Files", "Candidate_Id", "dbo.Candidates");
             DropForeignKey("dbo.Candidates", "Experience_Id", "dbo.Experiences");
             DropForeignKey("dbo.Comments", "Candidate_Id", "dbo.Candidates");
+            DropForeignKey("dbo.Candidates", "City_Id", "dbo.Cities");
+            DropForeignKey("dbo.Cities", "Country_Id", "dbo.Countries");
             DropIndex("dbo.Teams", new[] { "Department_Id" });
             DropIndex("dbo.Permissions", new[] { "Role_Id" });
             DropIndex("dbo.Users", new[] { "Role_Id" });
-            DropIndex("dbo.Users", new[] { "Location_Id" });
+            DropIndex("dbo.Users", new[] { "City_Id" });
             DropIndex("dbo.Vacancies", new[] { "Team_Id" });
             DropIndex("dbo.Vacancies", new[] { "Responsible_Id" });
             DropIndex("dbo.Vacancies", new[] { "ParentVacancy_Id" });
-            DropIndex("dbo.Vacancies", new[] { "Location_Id" });
             DropIndex("dbo.Vacancies", new[] { "LanguageSkill_Id" });
+            DropIndex("dbo.Vacancies", new[] { "City_Id" });
             DropIndex("dbo.VacancyStages", new[] { "Vacacny_Id" });
             DropIndex("dbo.VacancyStages", new[] { "Stage_Id" });
             DropIndex("dbo.VacancyStageInfoes", new[] { "VacancyStage_Id" });
@@ -431,16 +415,15 @@ namespace BotData.Migrations
             DropIndex("dbo.CandidateSocials", new[] { "SocialNetwork_Id" });
             DropIndex("dbo.Skills", new[] { "Vacancy_Id" });
             DropIndex("dbo.Skills", new[] { "Candidate_Id" });
-            DropIndex("dbo.Cities", new[] { "Country_Id" });
-            DropIndex("dbo.Locations", new[] { "City_Id" });
             DropIndex("dbo.LanguageSkills", new[] { "Candidate_Id" });
             DropIndex("dbo.LanguageSkills", new[] { "Language_Id" });
             DropIndex("dbo.Files", new[] { "Vacancy_Id" });
             DropIndex("dbo.Files", new[] { "Candidate_Id" });
             DropIndex("dbo.Comments", new[] { "Vacancy_Id" });
             DropIndex("dbo.Comments", new[] { "Candidate_Id" });
-            DropIndex("dbo.Candidates", new[] { "Location_Id" });
+            DropIndex("dbo.Cities", new[] { "Country_Id" });
             DropIndex("dbo.Candidates", new[] { "Experience_Id" });
+            DropIndex("dbo.Candidates", new[] { "City_Id" });
             DropTable("dbo.Departments");
             DropTable("dbo.Teams");
             DropTable("dbo.Permissions");
@@ -454,14 +437,13 @@ namespace BotData.Migrations
             DropTable("dbo.SocialNetworks");
             DropTable("dbo.CandidateSocials");
             DropTable("dbo.Skills");
-            DropTable("dbo.Countries");
-            DropTable("dbo.Cities");
-            DropTable("dbo.Locations");
             DropTable("dbo.Languages");
             DropTable("dbo.LanguageSkills");
             DropTable("dbo.Files");
             DropTable("dbo.Experiences");
             DropTable("dbo.Comments");
+            DropTable("dbo.Countries");
+            DropTable("dbo.Cities");
             DropTable("dbo.Candidates");
         }
     }

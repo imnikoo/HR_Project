@@ -11,7 +11,7 @@ namespace BotLibrary.Entities
         public Level Level {get; set;}
         public string Description { get; set; }
         public Team Team { get; set; }
-        public virtual Location Location { get; set; }
+        public virtual City City { get; set; }
         public User Responsible { get; set; }
         public List<Skill> RequiredSkills { get; set; }
         public int SalaryMin { get; set; }

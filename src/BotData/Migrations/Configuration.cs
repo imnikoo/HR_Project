@@ -65,11 +65,6 @@ namespace BotData.Migrations
                 Name = "dnepr"
             };
 
-            Location location = new Location()
-            {
-                City = city,
-            };
-
             Photo photo = new Photo()
             {
                 Description = "descr",
@@ -108,7 +103,7 @@ namespace BotData.Migrations
                 IsMale = true,
                 LanguageSkills = new List<LanguageSkill>() { languageSkill },
                 LastName = "lname",
-                Location = location,
+                City = city,
                 MiddleName = "mname",
                 PhoneNumbers = new List<string>() { "+380978762352" },
                 Photo = photo,
@@ -158,7 +153,7 @@ namespace BotData.Migrations
                 FirstName = "fname",
                 isMale = true,
                 LastName = "lastname",
-                Location = location,
+                City = city,
                 Login = "login",
                 Password = "pass",
                 MiddleName = "mname",
@@ -191,7 +186,7 @@ namespace BotData.Migrations
                 Files = new List<File>() { vacancyFile },
                 LanguageSkill = languageSkill,
                 Level = Level.Senior,
-                Location = location,
+                City = city,
                 ParentVacancy = null,
                 RequiredSkills = new List<Skill>() { skill },
                 Responsible = user,

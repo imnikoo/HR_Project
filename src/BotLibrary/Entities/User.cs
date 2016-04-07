@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BotLibrary.Entities.Setup;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace BotLibrary.Entities
         public string Skype { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public virtual Location Location { get; set; }
+        public virtual City City { get; set; }
         public Role Role { get; set; }
     }
 }
