@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BotData</RootNamespace>
     <AssemblyName>BotData</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -60,7 +60,6 @@
     <Compile Include="EFData\BOTContext.cs" />
     <Compile Include="EFData\Repositories\EFBaseEntityRepository.cs" />
     <Compile Include="EFData\Repositories\EFCandidateRepository.cs" />
-    <Compile Include="EFData\Repositories\EFCityRepository.cs" />
     <Compile Include="EFData\Repositories\EFVacancyRepository.cs" />
     <Compile Include="Migrations\201604070742372_init.cs" />
     <Compile Include="Migrations\201604070742372_init.Designer.cs">
