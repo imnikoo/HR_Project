@@ -15,9 +15,9 @@ namespace WebApi.DTO.DTOModels
         public CandidateDTO()
         {
             PhoneNumbers = new List<string>();
-            Skills = new List<Skill>();
-            SocialNetworks = new List<CandidateSocial>();
-            LanguageSkills = new List<LanguageSkill>();
+            SkillsIds = new List<int>();
+            SocialNetworks = new List<CandidateSocialDTO>();
+            LanguageSkills = new List<LanguageSkillDTO>();
             Files = new List<File>();
             VacanciesProgress = new List<VacancyStageInfo>();
             Comments = new List<Comment>();
@@ -37,16 +37,16 @@ namespace WebApi.DTO.DTOModels
         public string Skype { get; set; }
         public string PositionDesired { get; set; }
         public int SalaryDesired { get; set; }
-        public virtual List<Skill> Skills { get; set; }
+        public virtual List<int> SkillsIds { get; set; }
         public TypeOfEmployment TypeOfEmployment { get; set; }
         public string Practice { get; set; }
-        public Experience Experience { get; set; }
+        public int ExperienceId { get; set; }
         public string Description { get; set; }
-        public virtual City City { get; set; }
+        public virtual int CityId { get; set; }
         public bool RelocationAgreement { get; set; }
-        public virtual List<CandidateSocial> SocialNetworks { get; set; }
+        public virtual List<CandidateSocialDTO> SocialNetworks { get; set; }
         public string Education { get; set; }
-        public virtual List<LanguageSkill> LanguageSkills { get; set; }
+        public virtual List<LanguageSkillDTO> LanguageSkills { get; set; }
         public virtual List<File> Files { get; set; }
         [JsonIgnore]
         public virtual List<VacancyStageInfo> VacanciesProgress { get; set; }
