@@ -14,7 +14,6 @@ namespace WebApi
 
         protected void Application_Start()
         {
-            AutoMapperWebConfiguration.Configure();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             var builder = new ContainerBuilder();
 
@@ -28,6 +27,10 @@ namespace WebApi
             var config = GlobalConfiguration.Configuration;
 
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
+            AutoMapperWebConfiguration.Configure((ICandidateRepository)config.DependencyResolver.GetService(typeof(ICandidateRepository)));
+            
+
         }
     }
 }

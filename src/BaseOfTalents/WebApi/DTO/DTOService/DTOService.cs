@@ -16,7 +16,7 @@ namespace WebApi.DTO.DTOService
             where DomainEntity : BaseEntity, new()
             where ViewModel : new()
         {
-            return Mapper.Map<ViewModel, DomainEntity> (entity);
+            return Mapper.Map<ViewModel, DomainEntity>(entity);
         }
     }
 }
