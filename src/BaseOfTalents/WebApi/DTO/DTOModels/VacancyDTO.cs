@@ -18,13 +18,13 @@ namespace WebApi.DTO.DTOModels
         public string Title { get; set; }
         public Level Level { get; set; }
         public string Description { get; set; }
-        public Team Team { get; set; }
-        public virtual City City { get; set; }
+        public int TeamId { get; set; }
+        public int CityId { get; set; }
         public User Responsible { get; set; }
-        public List<Skill> RequiredSkills { get; set; }
+        public List<int> RequiredSkillsIds { get; set; }
         public int SalaryMin { get; set; }
         public int SalaryMax { get; set; }
-        public LanguageSkill LanguageSkill { get; set; }
+        public LanguageSkillDTO LanguageSkill { get; set; }
         public TypeOfEmployment TypeOfEmployment { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

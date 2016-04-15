@@ -1,4 +1,4 @@
-﻿using Data.Migrations;
+﻿//using Data.Migrations;
 using Domain.Entities;
 using Domain.Entities.Setup;
 using System.Data.Entity;
@@ -25,7 +25,8 @@ namespace Data.EFData
 
         public BOTContext() : base()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<BOTContext, Configuration>("BOTContext"));
+            //this.Configuration.LazyLoadingEnabled = false;
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<BOTContext, Configuration>("BOTContext"));
         }
     }
 }

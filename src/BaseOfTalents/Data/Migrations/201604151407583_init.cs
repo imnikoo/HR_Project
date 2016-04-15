@@ -88,7 +88,7 @@ namespace Data.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        WorkExperience = c.Time(nullable: false, precision: 7),
+                        WorkExperience = c.DateTime(nullable: false),
                         EditTime = c.DateTime(nullable: false),
                         State = c.Int(nullable: false),
                     })

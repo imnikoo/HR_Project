@@ -59,40 +59,10 @@ namespace Data.Migrations
                 new Stage { EditTime = DateTime.Now, Title="Rejected" },
             };
 
-            #region Candidate
-            Comment candidateComment = new Comment()
-            {
-                CommentType = CommentType.Candidate,
-                Message = "msg",
-                RelativeId = 0,
-            };
-
-            Experience experience = new Experience()
-            {
-                WorkExperience = new TimeSpan(1),
-            };
-
-            File candidateFile = new File()
-            {
-                Description = "description",
-                FilePath = "path",
-            };
-
-            CandidateSource candidateSource = new CandidateSource()
-            {
-                Path = "Path",
-                Source = Source.HeadHunter,
-            };
 
             Language language = new Language()
             {
                 Title = "language"
-            };
-
-            LanguageSkill languageSkill = new LanguageSkill()
-            {
-                Language = language,
-                LanguageLevel = LanguageLevel.Fluent,
             };
 
             Country country = new Country()
@@ -106,58 +76,100 @@ namespace Data.Migrations
                 Name = "dnepr"
             };
 
+            
+
+
             Photo photo = new Photo()
             {
                 Description = "descr",
                 ImagePath = "path"
             };
 
-            Skill skill = new Skill()
-            {
-                Title = "C#"
-            };
 
-            SocialNetwork socialNetwork = new SocialNetwork()
-            {
-                ImagePath = "path",
-                Title = "Path"
-            };
 
-            CandidateSocial candidateSocial = new CandidateSocial()
-            {
-                Path = "path",
-                SocialNetwork = socialNetwork,
-            };
 
-            Candidate candidate = new Candidate()
+            var candidates = new List<Candidate>();
+            for(int i=0;i<4000; i++ )
             {
-                Skype = "skype",
-                BirthDate = DateTime.Now,
-                Comments = new List<Comment>() { candidateComment },
-                Description = "descrpition",
-                Education = "High",
-                Email = "email",
-                Experience = experience,
-                Files = new List<File>() { candidateFile },
-                Sources = new List<CandidateSource>() { candidateSource },
-                FirstName = "fname",
-                IsMale = true,
-                LanguageSkills = new List<LanguageSkill>() { languageSkill },
-                LastName = "lname",
-                City = city,
-                MiddleName = "mname",
-                PhoneNumbers = new List<string>() { "+380978762352" },
-                Photo = photo,
-                PositionDesired = "architecht",
-                Practice = "best",
-                RelocationAgreement = true,
-                SalaryDesired = 10500,
-                Skills = new List<Skill>() { skill },
-                SocialNetworks = new List<CandidateSocial>() { candidateSocial },
-                TypeOfEmployment = TypeOfEmployment.FullTime,
-                VacanciesProgress = new List<VacancyStageInfo>() { }
-            };
-            #endregion
+                Skill skill = new Skill()
+                {
+                    Title = "C#"
+                };
+
+                LanguageSkill languageSkill = new LanguageSkill()
+                {
+                    Language = language,
+                    LanguageLevel = LanguageLevel.Fluent,
+                };
+                #region Candidate
+                Comment candidateComment = new Comment()
+                            {
+                                CommentType = CommentType.Candidate,
+                                Message = "msg",
+                                RelativeId = 0,
+                            };
+
+                            Experience experience = new Experience()
+                            {
+                                WorkExperience = DateTime.Now,
+                            };
+
+                            File candidateFile = new File()
+                            {
+                                Description = "description",
+                                FilePath = "path",
+                            };
+
+                            CandidateSource candidateSource = new CandidateSource()
+                            {
+                                Path = "Path",
+                                Source = Source.HeadHunter,
+                            };
+
+                            SocialNetwork socialNetwork = new SocialNetwork()
+                            {
+                                ImagePath = "path",
+                                Title = "Path"
+                            };
+
+                            CandidateSocial candidateSocial = new CandidateSocial()
+                            {
+                                Path = "path",
+                                SocialNetwork = socialNetwork,
+                            };
+
+                            Candidate candidate = new Candidate()
+                            {
+                                Skype = "skype",
+                                BirthDate = DateTime.Now,
+                                Comments = new List<Comment>() { candidateComment },
+                                Description = "descrpition",
+                                Education = "High",
+                                Email = "email",
+                                Experience = experience,
+                                Files = new List<File>() { candidateFile },
+                                Sources = new List<CandidateSource>() { candidateSource },
+                                FirstName = "fname",
+                                IsMale = true,
+                                LanguageSkills = new List<LanguageSkill>() { languageSkill },
+                                LastName = "lname",
+                                City = city,
+                                MiddleName = "mname",
+                                PhoneNumbers = new List<string>() { "+380978762352" },
+                                Photo = photo,
+                                PositionDesired = "architecht",
+                                Practice = "best",
+                                RelocationAgreement = true,
+                                SalaryDesired = 10500,
+                                Skills = new List<Skill>() { skill },
+                                SocialNetworks = new List<CandidateSocial>() { candidateSocial },
+                                TypeOfEmployment = TypeOfEmployment.FullTime,
+                                VacanciesProgress = new List<VacancyStageInfo>() { }
+                            };
+                #endregion
+                candidates.Add(candidate);
+            }
+          
 
             Comment vacancyComment = new Comment()
             {
@@ -213,29 +225,42 @@ namespace Data.Migrations
                 Title = "title"
             };
 
-            Vacancy vacancy = new Vacancy()
+            var vacancies = new List<Vacancy>();
+            for (int i = 0; i < 1000; i++)
             {
-                TypeOfEmployment = TypeOfEmployment.FullTime,
-                Title = "Architecht",
-                Comments = new List<Comment>() { vacancyComment },
-                DeadlineDate = DateTime.Now,
-                Description = "descr",
-                EndDate = DateTime.Now,
-                Files = new List<File>() { vacancyFile },
-                LanguageSkill = languageSkill,
-                Level = Level.Senior,
-                City = city,
-                ParentVacancy = null,
-                RequiredSkills = new List<Skill>() { skill },
-                Responsible = user,
-                SalaryMax = 100500,
-                SalaryMin = 15,
-                StartDate = DateTime.Now,
-                Team = team,
-                CandidatesProgress = new List<VacancyStageInfo>()
 
-            };
-
+                Skill skill = new Skill()
+                {
+                    Title = "C#"
+                };
+                LanguageSkill languageSkill = new LanguageSkill()
+                {
+                    Language = language,
+                    LanguageLevel = LanguageLevel.Fluent,
+                };
+                Vacancy vacancy = new Vacancy()
+                {
+                    TypeOfEmployment = TypeOfEmployment.FullTime,
+                    Title = "Architecht",
+                    Comments = new List<Comment>() { vacancyComment },
+                    DeadlineDate = DateTime.Now,
+                    Description = "descr",
+                    EndDate = DateTime.Now,
+                    Files = new List<File>() { vacancyFile },
+                    LanguageSkill = languageSkill,
+                    Level = Level.Senior,
+                    City = city,
+                    ParentVacancy = null,
+                    RequiredSkills = new List<Skill>() { skill },
+                    Responsible = user,
+                    SalaryMax = 100500,
+                    SalaryMin = 15,
+                    StartDate = DateTime.Now,
+                    Team = team,
+                    CandidatesProgress = new List<VacancyStageInfo>()
+                };
+                vacancies.Add(vacancy);
+            }
             Comment vsicomment = new Comment()
             {
                 CommentType = CommentType.StageInfo,
@@ -248,24 +273,31 @@ namespace Data.Migrations
                 Title = "pool"
             };
 
-            VacancyStage vs = new VacancyStage()
-            {
-                IsCommentRequired = true,
-                Order = 1,
-                Stage = stage,
-                Vacacny = vacancy
-            };
 
-            VacancyStageInfo vsi = new VacancyStageInfo()
+            int vacancyId = 0;
+            foreach(var c in candidates)
             {
-                Candidate = candidate,
-                Comment = vsicomment,
-                VacancyStage = vs
-            };
-            candidate.VacanciesProgress.Add(vsi);
-            vacancy.CandidatesProgress.Add(vsi);
-            context.Vacancies.Add(vacancy);
-            context.Candidates.Add(candidate);
+                VacancyStage vs = new VacancyStage()
+                {
+                    IsCommentRequired = true,
+                    Order = 1,
+                    Stage = stage,
+                    Vacacny = vacancies[vacancyId]
+                };
+
+                VacancyStageInfo vsi = new VacancyStageInfo()
+                {
+                    Candidate = c,
+                    Comment = vsicomment,
+                    VacancyStage = vs
+                };
+                c.VacanciesProgress.Add(vsi);
+                vacancies[vacancyId].CandidatesProgress.Add(vsi);
+                if (vacancyId == 999) vacancyId = 0;
+            }
+
+            context.Vacancies.AddRange(vacancies);
+            context.Candidates.AddRange(candidates);
             context.Cities.AddRange(cities);
             context.Countries.AddRange(countries);
             context.Stages.AddRange(stages);

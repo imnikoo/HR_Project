@@ -11,212 +11,318 @@ namespace Data.DumbData
     {
         List<Candidate> _candidates = new List<Candidate>();
         List<Vacancy> _vacancies = new List<Vacancy>();
-    
-       /* public DummyBotContext()
+        List<SocialNetwork> _socialNetworks = new List<SocialNetwork>();
+        List<Language> _languages = new List<Language>();
+        List<Skill> _skills = new List<Skill>();
+        List<Experience> _experiences = new List<Experience>();
+        List<City> _cities = new List<City>();
+        List<Team> _teams = new List<Team>();
+
+
+        public DummyBotContext()
         {
-            Random r = new Random();
 
-            Location _location = new Location()
+            #region Candidate
+            Comment candidateComment = new Comment()
             {
-                City = new City()
-                {
-                    Id = 1,
-                    EditTime = DateTime.Now,
-                    Country = new Country()
-                    {
-                        Id = 1,
-                        EditTime = DateTime.Now,
-                        Name = "Ukraine"
-                    },
-                    Name = "Dnipro"
-                }
-            };
-            List<Language> _languages = new List<Language>()
-                    {
-                        new Language()
-                        {
-                            Id = 1,
-                            EditTime = DateTime.Now,
-                            State = BotLibrary.Entities.Enum.EntityState.Active,
-                            Title = "lang"
-                        }
-                    };
-            List<Skill> _skills = new List<Skill>()
-            {
-                 new Skill()
-                 {
-                     Id = 1,
-                     EditTime = DateTime.Now,
-                     Title = "Stress blocker",
-                     State = BotLibrary.Entities.Enum.EntityState.Active
-                 }
-            };
-            Permission _permission = new Permission()
-            {
-                Id = 1,
-                EditTime = DateTime.Now,
-                Role = null,
-                Description = "Can do anything"
+                CommentType = CommentType.Candidate,
+                Message = "msg",
+                RelativeId = 0,
             };
 
-            Role _adminRole = new Role()
+            Experience experience = new Experience()
             {
                 Id = 1,
-                EditTime = DateTime.Now,
-                Name = "Admin",
-                Permissions = new List<Permission>() { _permission },
-                State = BotLibrary.Entities.Enum.EntityState.Active,
+                WorkExperience = DateTime.Now,
             };
-            
-            Photo _photo = new Photo()
+            _experiences.Add(experience);
+
+            File candidateFile = new File()
             {
-                Description = "my cat",
+                Description = "description",
+                FilePath = "path",
+            };
+
+            CandidateSource candidateSource = new CandidateSource()
+            {
+                Path = "Path",
+                Source = Source.HeadHunter,
+            };
+
+            Language language = new Language()
+            {
+                Id = 1,
+                Title = "language"
+            };
+            _languages.Add(language);
+
+            LanguageSkill languageSkill = new LanguageSkill()
+            {
+                Language = language,
+                LanguageLevel = LanguageLevel.Fluent,
+            };
+
+            Country country = new Country()
+            {
+                Name = "name"
+            };
+
+            City city = new City()
+            {
+                Id = 1,
+                Country = country,
+                Name = "dnepr"
+            };
+            _cities.Add(city);
+
+            Photo photo = new Photo()
+            {
+                Description = "descr",
                 ImagePath = "path"
-            }
+            };
 
-            User _user = new User()
+            Skill skill = new Skill()
             {
                 Id = 1,
-                EditTime = DateTime.Now,
-                Login = "admin",
-                Password = "admin",
-                Role = _adminRole,
-                Location = _location,
+                Title = "C#"
+            };
+            _skills.Add(skill);
+
+            SocialNetwork socialNetwork = new SocialNetwork()
+            {
+                Id = 1,
+                ImagePath = "path",
+                Title = "Path"
+            };
+            _socialNetworks.Add(socialNetwork);
+            CandidateSocial candidateSocial = new CandidateSocial()
+            {
+                Path = "path",
+                SocialNetwork = socialNetwork,
+            };
+
+            Candidate candidate = new Candidate()
+            {
+                Id = 1,
+                Skype = "skype",
                 BirthDate = DateTime.Now,
-                State = BotLibrary.Entities.Enum.EntityState.Active,
+                Comments = new List<Comment>() { candidateComment },
+                Description = "descrpition",
+                Education = "High",
                 Email = "email",
-                FirstName = "fnmame",
-                isMale = true,
+                Experience = experience,
+                Files = new List<File>() { candidateFile },
+                Sources = new List<CandidateSource>() { candidateSource },
+                FirstName = "TESTNAME",
+                IsMale = true,
+                LanguageSkills = new List<LanguageSkill>() { languageSkill },
                 LastName = "lname",
+                City = city,
                 MiddleName = "mname",
-                PhoneNumbers = new List<string>( ) { "98309382231"},
-                Photo = _photo,
-                Skype = "skype"
+                PhoneNumbers = new List<string>() { "+380978762352" },
+                Photo = photo,
+                PositionDesired = "architecht",
+                Practice = "best",
+                RelocationAgreement = true,
+                SalaryDesired = 10500,
+                Skills = new List<Skill>() { skill },
+                SocialNetworks = new List<CandidateSocial>() { candidateSocial },
+                TypeOfEmployment = TypeOfEmployment.FullTime,
+                VacanciesProgress = new List<VacancyStageInfo>() { }
+            };
+            #endregion
+
+            Comment vacancyComment = new Comment()
+            {
+                CommentType = CommentType.Vacancy,
+                Message = "msg",
+                RelativeId = 0,
             };
 
-
-            for (int i = 1; i <= 20; i++)
+            File vacancyFile = new File()
             {
-                _vacancies.Add(new Vacancy()
-                {
-                    Id = i,
-                    EditTime = DateTime.Now,
-                    DeadlineDate = DateTime.Now.AddMonths(i),
-                    CandidatesProgress = new List<VacancyStageInfo>() {  }
-                    Description = "Junior Arcihtech " + i,
-                    EndDate = DateTime.MinValue,
-                    Level = Level.Junior,
-                    Location = _location,
-                    RequiredSkills = _skills,
-                    Responsible = _user,
-                    SalaryMax = 1000,
-                    SalaryMin = 500,
-                    StartDate = DateTime.Now,
-                    TypeOfEmployment = TypeOfEmployment.FullTime,
-                    Comments = new List<Comment>(),
-                    Files = new List<File>(),
-                });
-            }
-            int _nameIndex = 0;
-            for (int i = 1; i <= 200; i++)
-            {
-                _candidates.Add(new Candidate()
-                {
-                    Id = i,
-                    EditTime = DateTime.Now,
-                    BirthDate = DateTime.Now.Subtract(new TimeSpan(i, i, i)),
-                    Gender = i % 2 == 0 ? true : false,
-                    FirstName = i % 2 == 0 ? Storage.MaleFirstNames[_nameIndex] : Storage.FemaleFirstNames[_nameIndex],
-                    MiddleName = i.ToString(),
-                    LastName = i.ToString(),
-                    Photo = null,
-                    Email = string.Format("email{0}@email.com", i),
-                    PhoneNumbers = new List<string>() { "+38093000" + i },
-                    Skype = "skype" + i,
-                    Comments = new List<Comment>()
-                    {
-                        new Comment()
-                        {
-                            Id = i,
-                            EditTime = DateTime.Now,
-                            CommentType = CommentType.Candidate,
-                            Message = "Iam a message number " + i
-                        }
-                    },
-                    Description = "Candidate's description",
-                    Education = "Highest",
-                    Languages = _languages,
-                    Location = _location,
-                    RelocationAgreement = i % 2 == 0 ? true : false,
-                    Files = new List<File>(),
-                    SocialNetworks = new List<SocialNetwork>(),
-                    Sources = new List<Source>(),
-                    Experience = new Experience()
-                    {
-                        Id = i,
-                        EditTime = DateTime.Now,
-                        WorkExperience = new TimeSpan(i)
-                    },
-                    PositionDesired = i % 2 == 0 ? (i % 3 == 0 ? "Senior" : "Middle") : "Junior",
-                    Practice = "Good practice",
-                    SalaryDesired = 500 + i,
-                    Skills = _skills,
-                    TypeOfEmployment = TypeOfEmployment.FullTime,
-                    VacanciesProgress = new List<VacancyStageInfo>()
-                });
-                _nameIndex++;
-                if (Storage.MaleFirstNames.Count - 1 == _nameIndex || Storage.FemaleFirstNames.Count - 1 == _nameIndex) _nameIndex = 0;
-            }
-
-
-            List<StageInfo> _stages = new List<StageInfo>()
-            {
-                new StageInfo()
-                {
-                    Stage = new Stage()
-                    {
-                        Id = 1,
-                        EditTime = DateTime.Now,
-                        Title = "Pool",
-                        Description = "Starting location of people"
-                    }
-                },
-                new StageInfo()
-                {
-                    Stage = new Stage()
-                    {
-                        Id = 2,
-                        EditTime = DateTime.Now,
-                        Title = "HR Interview",
-                        Description = "Second location of people"
-                    }
-                }
+                Description = "file",
+                FilePath = "path",
             };
 
-            int _vacancyIndex = 0;
-            foreach (var c in _candidates)
+            Permission permission = new Permission()
             {
-                if (_vacancyIndex == 20) _vacancyIndex = 0;
-                c.VacanciesProgress.Add(new VacancyStageInfo()
-                {
-                    Vacancy = _vacancies[_vacancyIndex],
-                    StageInfos = new List<StageInfo>() { _stages[_vacancyIndex % 2 == 0 ? 0 : 1] }
-                });
-                _vacancies[_vacancyIndex].CandidatesProgress.Add(new CandidateStageInfo()
-                {
-                    Candidate = c,
-                    StageInfos = new List<StageInfo>() { _stages[_vacancyIndex % 2 == 0 ? 0 : 1] }
-                });
-                _vacancyIndex++;
-            }
+                AccessRights = AccessRights.AddCandidateToVacancy,
+                Description = "Permis",
+                Role = null
+            };
 
-        }*/
+            Role role = new Role()
+            {
+                Name = "adm",
+                Permissions = new List<Permission>() { permission },
+            };
+
+            User user = new User()
+            {
+                BirthDate = DateTime.Now,
+                Email = "mail",
+                FirstName = "fname",
+                isMale = true,
+                LastName = "lastname",
+                City = city,
+                Login = "login",
+                Password = "pass",
+                MiddleName = "mname",
+                PhoneNumbers = new List<string>() { "+3565234662" },
+                Photo = photo,
+                Role = role,
+                Skype = "skype",
+            };
+
+            Department department = new Department()
+            {
+                Title = "title"
+            };
+
+            Team team = new Team()
+            {
+                Id = 1,
+                Department = department,
+                Title = "title"
+            };
+            _teams.Add(team);
+
+            Vacancy vacancy = new Vacancy()
+            {
+                TypeOfEmployment = TypeOfEmployment.FullTime,
+                Title = "Architecht",
+                Comments = new List<Comment>() { vacancyComment },
+                DeadlineDate = DateTime.Now,
+                Description = "descr",
+                EndDate = DateTime.Now,
+                Files = new List<File>() { vacancyFile },
+                LanguageSkill = languageSkill,
+                Level = Level.Senior,
+                City = city,
+                ParentVacancy = null,
+                RequiredSkills = new List<Skill>() { skill },
+                Responsible = user,
+                SalaryMax = 100500,
+                SalaryMin = 15,
+                StartDate = DateTime.Now,
+                Team = team,
+                CandidatesProgress = new List<VacancyStageInfo>()
+
+            };
+
+            Comment vsicomment = new Comment()
+            {
+                CommentType = CommentType.StageInfo,
+                Message = "msg",
+                RelativeId = 0,
+            };
+
+            Stage stage = new Stage()
+            {
+                Title = "pool"
+            };
+
+            VacancyStage vs = new VacancyStage()
+            {
+                IsCommentRequired = true,
+                Order = 1,
+                Stage = stage,
+                Vacacny = vacancy
+            };
+
+            VacancyStageInfo vsi = new VacancyStageInfo()
+            {
+                Candidate = candidate,
+                Comment = vsicomment,
+                VacancyStage = vs
+            };
+            candidate.VacanciesProgress.Add(vsi);
+            vacancy.CandidatesProgress.Add(vsi);
+
+            _vacancies.Add(vacancy);
+            _candidates.Add(candidate);
+        }
+
 
         public IList<Candidate> Candidates
         {
             get
             {
                 return _candidates;
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public IList<City> Cities
+        {
+            get
+            {
+                return _cities;
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+
+        public IList<Team> Teams
+        {
+            get
+            {
+                return _teams;
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public IList<Experience> Experiences
+        {
+            get
+            {
+                return _experiences;
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public IList<Skill> Skills
+        {
+            get
+            {
+                return _skills;
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public IList<Language> Languages
+        {
+            get
+            {
+                return _languages;
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public IList<SocialNetwork> SocialNetworks
+        {
+            get
+            {
+                return _socialNetworks;
             }
             set
             {

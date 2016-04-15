@@ -8,6 +8,6 @@ namespace Domain.Entities.Setup
 {
     public class Experience: BaseEntity
     {
-        public TimeSpan WorkExperience { get; set; }
+        public DateTime WorkExperience { get; set; }
     }
 }

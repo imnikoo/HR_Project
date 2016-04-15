@@ -54,17 +54,29 @@
     <Compile Include="DumbData\DummyBotContext.cs" />
     <Compile Include="DumbData\Repositories\DummyBaseEntityRepository.cs" />
     <Compile Include="DumbData\Repositories\DummyCandidateRepository.cs" />
+    <Compile Include="DumbData\Repositories\DummyCityRepository.cs" />
+    <Compile Include="DumbData\Repositories\DummyExperienceRepository.cs" />
+    <Compile Include="DumbData\Repositories\DummyLanguageRepository.cs" />
+    <Compile Include="DumbData\Repositories\DummySkillRepository.cs" />
+    <Compile Include="DumbData\Repositories\DummySocialNetworkRepository.cs" />
+    <Compile Include="DumbData\Repositories\DummyTeamRepository.cs" />
     <Compile Include="DumbData\Repositories\DummyUserRepository.cs" />
     <Compile Include="DumbData\Repositories\DummyVacancyRepository.cs" />
     <Compile Include="DumbData\Storage.cs" />
     <Compile Include="EFData\BOTContext.cs" />
     <Compile Include="EFData\Repositories\EFBaseEntityRepository.cs" />
     <Compile Include="EFData\Repositories\EFCandidateRepository.cs" />
+    <Compile Include="EFData\Repositories\EFCityRepository.cs" />
+    <Compile Include="EFData\Repositories\EFCountryRepository.cs" />
+    <Compile Include="EFData\Repositories\EFExperienceRepository.cs" />
+    <Compile Include="EFData\Repositories\EFLanguageRepository.cs" />
+    <Compile Include="EFData\Repositories\EFSkillRepository.cs" />
     <Compile Include="EFData\Repositories\EFSocialNetworkRepository.cs" />
+    <Compile Include="EFData\Repositories\EFTeamRepository.cs" />
     <Compile Include="EFData\Repositories\EFVacancyRepository.cs" />
-    <Compile Include="Migrations\201604081129048_init.cs" />
-    <Compile Include="Migrations\201604081129048_init.Designer.cs">
-      <DependentUpon>201604081129048_init.cs</DependentUpon>
+    <Compile Include="Migrations\201604151407583_init.cs" />
+    <Compile Include="Migrations\201604151407583_init.Designer.cs">
+      <DependentUpon>201604151407583_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,8 +92,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604081129048_init.resx">
-      <DependentUpon>201604081129048_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604151407583_init.resx">
+      <DependentUpon>201604151407583_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
