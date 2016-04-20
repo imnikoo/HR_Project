@@ -2,7 +2,7 @@
 using Domain.Entities.Enum;
 using System;
 
-namespace WebApi.DTO.DTOModels
+namespace Domain.DTO.DTOModels
 {
     public class CandidateSocialDTO
     {

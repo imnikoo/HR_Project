@@ -1,4 +1,6 @@
-﻿using Domain.Entities;
+﻿using AutoMapper;
+using Domain.DTO.DTOModels;
+using Domain.Entities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,8 +10,7 @@ namespace WebApi.DTO.DTOService
 {
     public static class DTOService
     {
-
-        /*public static ViewModel ToDTO<DomainEntity, ViewModel>(DomainEntity entity)
+        public static ViewModel ToDTO<DomainEntity, ViewModel>(DomainEntity entity)
             where DomainEntity : BaseEntity, new()
             where ViewModel : new()
         {
@@ -21,6 +22,6 @@ namespace WebApi.DTO.DTOService
             where ViewModel : new()
         {
             return Mapper.Map<ViewModel, DomainEntity>(entity);
-        }*/
+        }
     }
 }

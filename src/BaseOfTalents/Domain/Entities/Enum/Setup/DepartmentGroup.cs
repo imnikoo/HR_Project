@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities.Setup
 {
-    public class Team: BaseEntity
+    public class DepartmentGroup : BaseEntity
     {
-        public string Title {get; set;}
-        public Department Department { get; set; }
+        public string Title { get; set; }
     }
 }

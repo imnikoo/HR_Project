@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Domain.Entities.Setup
 {
-    public class City : BaseEntity
+    public class Location : BaseEntity
     {
-        public string Name { get; set; }
+        public string Title { get; set; }
         public virtual Country Country { get; set; }
     }
 }

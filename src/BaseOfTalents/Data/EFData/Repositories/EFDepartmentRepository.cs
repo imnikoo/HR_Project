@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.EFData.Repositories
 {
-    public class EFTeamRepository : EFBaseEntityRepository<Team>, ITeamRepository 
+    public class EFDepartmentRepository : EFBaseEntityRepository<Department>, IDepartmentRepository
     {
     }
 }

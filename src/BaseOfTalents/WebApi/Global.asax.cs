@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
+using Data.EFData.Design;
 using Data.EFData.Repositories;
 using Domain.Repositories;
 using System.Reflection;
@@ -18,21 +19,15 @@ namespace WebApi
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             var builder = new ContainerBuilder();
+            builder.RegisterType<EFRepositoryFacade>().As<IRepositoryFacade>();
 
-            builder.RegisterType<EFVacancyRepository>().As<IVacancyRepository>();
-            builder.RegisterType<EFCandidateRepository>().As<ICandidateRepository>();
-            builder.RegisterType<EFSocialNetworkRepository>().As<ISocialNetworkRepository>();
-            builder.RegisterType<EFCityRepository>().As<ICityRepository>();
-            builder.RegisterType<EFSkillRepository>().As<ISkillRepository>();
-            builder.RegisterType<EFTeamRepository>().As<ITeamRepository>();
-            builder.RegisterType<EFExperienceRepository>().As<IExperienceRepository>();
-            builder.RegisterType<EFCountryRepository>().As<ICountryRepository>();
-            builder.RegisterType<EFLanguageRepository>().As<ILanguageRepository>();
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             var container = builder.Build();
             var config = GlobalConfiguration.Configuration;
+
+            AutoMapperWebConfiguration.Configure(container.Resolve<IRepositoryFacade>());
 
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }

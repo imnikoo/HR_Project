@@ -8,6 +8,6 @@ namespace Domain.Entities.Enum.Setup
 {
     public class Tag : BaseEntity
     {
-        public string Name { get; set; }
+        public string Title { get; set; }
     }
 }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Data.DumbData.Repositories
 {
-    public class DummyTeamRepository : DummyBaseEntityRepository<Team>, ITeamRepository
+    public class DummyDepartmentRepository : DummyBaseEntityRepository<Department>, IDepartmentRepository
     {
-        public DummyTeamRepository(DummyBotContext context) : base(context)
+        public DummyDepartmentRepository(DummyBotContext context) : base(context)
         {
             Collection = _context.Teams;
         }

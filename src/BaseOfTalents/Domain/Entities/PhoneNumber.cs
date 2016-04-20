@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities.Setup
+namespace Domain.Entities
 {
-    public class Experience: BaseEntity
+    public class PhoneNumber : BaseEntity
     {
-        public DateTime WorkExperience { get; set; }
+        public string Number { get; set; }
     }
 }

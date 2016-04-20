@@ -14,9 +14,8 @@ namespace Data.DumbData
         List<SocialNetwork> _socialNetworks = new List<SocialNetwork>();
         List<Language> _languages = new List<Language>();
         List<Skill> _skills = new List<Skill>();
-        List<Experience> _experiences = new List<Experience>();
-        List<City> _cities = new List<City>();
-        List<Team> _teams = new List<Team>();
+        List<Location> _cities = new List<Location>();
+        List<Department> _teams = new List<Department>();
 
 
         public DummyBotContext()
@@ -29,13 +28,6 @@ namespace Data.DumbData
                 Message = "msg",
                 RelativeId = 0,
             };
-
-            Experience experience = new Experience()
-            {
-                Id = 1,
-                WorkExperience = DateTime.Now,
-            };
-            _experiences.Add(experience);
 
             File candidateFile = new File()
             {
@@ -64,14 +56,14 @@ namespace Data.DumbData
 
             Country country = new Country()
             {
-                Name = "name"
+                Title = "name"
             };
 
-            City city = new City()
+            Location city = new Location()
             {
                 Id = 1,
                 Country = country,
-                Name = "dnepr"
+                Title = "dnepr"
             };
             _cities.Add(city);
 
@@ -110,16 +102,16 @@ namespace Data.DumbData
                 Description = "descrpition",
                 Education = "High",
                 Email = "email",
-                Experience = experience,
+               
                 Files = new List<File>() { candidateFile },
                 Sources = new List<CandidateSource>() { candidateSource },
                 FirstName = "TESTNAME",
                 IsMale = true,
                 LanguageSkills = new List<LanguageSkill>() { languageSkill },
                 LastName = "lname",
-                City = city,
+                Location = city,
                 MiddleName = "mname",
-                PhoneNumbers = new List<string>() { "+380978762352" },
+                PhoneNumbers = new List<PhoneNumber>() { new PhoneNumber() { Id = 1 ,Number = "+380978762352" } },
                 Photo = photo,
                 PositionDesired = "architecht",
                 Practice = "best",
@@ -149,12 +141,11 @@ namespace Data.DumbData
             {
                 AccessRights = AccessRights.AddCandidateToVacancy,
                 Description = "Permis",
-                Role = null
             };
 
             Role role = new Role()
             {
-                Name = "adm",
+                Title = "adm",
                 Permissions = new List<Permission>() { permission },
             };
 
@@ -165,28 +156,28 @@ namespace Data.DumbData
                 FirstName = "fname",
                 isMale = true,
                 LastName = "lastname",
-                City = city,
+                Location = city,
                 Login = "login",
                 Password = "pass",
                 MiddleName = "mname",
-                PhoneNumbers = new List<string>() { "+3565234662" },
+                PhoneNumbers = new List<PhoneNumber>() { new PhoneNumber() { Number = "+3565234662" } },
                 Photo = photo,
                 Role = role,
                 Skype = "skype",
             };
 
-            Department department = new Department()
+            DepartmentGroup departmentGroup = new DepartmentGroup()
             {
                 Title = "title"
             };
 
-            Team team = new Team()
+            Department department = new Department()
             {
                 Id = 1,
-                Department = department,
+                DepartmentGroup = departmentGroup,
                 Title = "title"
             };
-            _teams.Add(team);
+            _teams.Add(department);
 
             Vacancy vacancy = new Vacancy()
             {
@@ -198,15 +189,15 @@ namespace Data.DumbData
                 EndDate = DateTime.Now,
                 Files = new List<File>() { vacancyFile },
                 LanguageSkill = languageSkill,
-                Level = Level.Senior,
-                City = city,
+                Level = new List<Level>() { Level.Senior },
+                Locations = new List<Location>() { city },
                 ParentVacancy = null,
                 RequiredSkills = new List<Skill>() { skill },
                 Responsible = user,
                 SalaryMax = 100500,
                 SalaryMin = 15,
                 StartDate = DateTime.Now,
-                Team = team,
+                Department = department,
                 CandidatesProgress = new List<VacancyStageInfo>()
 
             };
@@ -257,7 +248,7 @@ namespace Data.DumbData
             }
         }
 
-        public IList<City> Cities
+        public IList<Location> Cities
         {
             get
             {
@@ -270,23 +261,11 @@ namespace Data.DumbData
         }
 
 
-        public IList<Team> Teams
+        public IList<Department> Teams
         {
             get
             {
                 return _teams;
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public IList<Experience> Experiences
-        {
-            get
-            {
-                return _experiences;
             }
             set
             {

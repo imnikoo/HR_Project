@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.DumbData.Repositories
 {
-    public class DummyCityRepository : DummyBaseEntityRepository<City>, ICityRepository
+    public class DummyCityRepository : DummyBaseEntityRepository<Location>, ILocationRepository
     {
         public DummyCityRepository(DummyBotContext context) : base(context)
         {

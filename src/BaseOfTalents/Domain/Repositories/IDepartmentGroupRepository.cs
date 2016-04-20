@@ -1,14 +1,13 @@
 ﻿using Domain.Entities.Setup;
-using Domain.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data.EFData.Repositories
+namespace Domain.Repositories
 {
-    public class EFExperienceRepository : EFBaseEntityRepository<Experience>, IExperienceRepository
+    public interface IDepartmentGroupRepository : IRepository<DepartmentGroup>
     {
     }
 }

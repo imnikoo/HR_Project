@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities.Setup
+namespace Domain.Entities.Enum.Setup
 {
-    public class Room: BaseEntity
+    public class Industry : BaseEntity
     {
         public string Title { get; set; }
     }
