@@ -7,8 +7,8 @@ namespace WebApi.Controllers
 {
     public class SocialNetworksController : BoTController<SocialNetwork, SocialNetworkDTO>
     {
-        public SocialNetworksController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
-            : base (repoFatory, unitOfWork, errorRepo)
+        public SocialNetworksController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork)
+            : base (repoFatory, unitOfWork)
         {
 
         }

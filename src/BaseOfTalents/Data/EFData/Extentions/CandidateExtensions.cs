@@ -86,7 +86,7 @@ namespace Data.EFData.Extentions
             domain.Skills = dto.SkillIds.Select(x => skillRepo.Get(x)).ToList();
 
             domain.IndustryId = dto.IndustryId;
-            domain.Photo = new Photo()
+            domain.Photo = dto.Photo == null ? null : new Photo()
             {
                 Description = dto.Photo.Description,
                 Id = dto.Photo.Id,

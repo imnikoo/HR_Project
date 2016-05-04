@@ -11,8 +11,8 @@ namespace WebApi.Controllers
 {
     public class StagesController : BoTController<Stage, StageDTO>
     {
-        public StagesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
-            : base (repoFatory, unitOfWork, errorRepo)
+        public StagesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork)
+            : base (repoFatory, unitOfWork)
         {
 
         }

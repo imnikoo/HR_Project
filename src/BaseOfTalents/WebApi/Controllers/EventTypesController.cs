@@ -11,8 +11,8 @@ namespace WebApi.Controllers
 {
     public class EventTypesController : BoTController<EventType, EventTypeDTO>
     {
-        public EventTypesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
-            : base (repoFatory, unitOfWork, errorRepo)
+        public EventTypesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork )
+            : base (repoFatory, unitOfWork)
         {
 
         }

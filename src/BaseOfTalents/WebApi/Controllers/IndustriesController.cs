@@ -13,8 +13,8 @@ namespace WebApi.Controllers
 {
     public class IndustriesController : BoTController<Industry, IndustryDTO>
     {
-        public IndustriesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
-            : base (repoFatory, unitOfWork, errorRepo)
+        public IndustriesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork)
+            : base (repoFatory, unitOfWork)
         {
 
         }

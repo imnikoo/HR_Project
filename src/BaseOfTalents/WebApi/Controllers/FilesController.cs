@@ -13,8 +13,8 @@ namespace WebApi.Controllers
 {
     public class FilesController : BoTController<File,FileDTO>
     {
-        public FilesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
-            : base (repoFatory, unitOfWork, errorRepo)
+        public FilesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork)
+            : base (repoFatory, unitOfWork)
         {
 
         }

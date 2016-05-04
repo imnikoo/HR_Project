@@ -41,6 +41,11 @@ namespace Data.EFData
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<BOTContext, Configuration>());
         }
 
+        public BOTContext(string connectionString) : base(connectionString)
+        {
+            var SQLProviderConfiguration = new SQLProviderConfiguration();
+        }
+
         public virtual void Commit()
         {
             base.SaveChanges();
@@ -48,7 +53,7 @@ namespace Data.EFData
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            //modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 

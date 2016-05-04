@@ -22,8 +22,8 @@ namespace WebApi.Controllers
 {
     public class CandidatesController : BoTController<Candidate, CandidateDTO>
     {
-        public CandidatesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
-            : base(repoFatory, unitOfWork, errorRepo)
+        public CandidatesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork)
+            : base(repoFatory, unitOfWork)
         {
 
         }

@@ -11,8 +11,8 @@ namespace WebApi.Controllers
 {
     public class SkillsController : BoTController<Skill, SkillDTO>
     {
-        public SkillsController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
-            : base (repoFatory, unitOfWork, errorRepo)
+        public SkillsController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork)
+            : base (repoFatory, unitOfWork)
         {
 
         }

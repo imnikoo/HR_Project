@@ -4,7 +4,6 @@ using Domain.Repositories;
 using Domain.DTO.DTOModels;
 using System.Web.Http;
 using Data.Infrastructure;
-using Data.Infrastructure;
 using System.Net.Http;
 using Data.EFData.Extentions;
 using Newtonsoft.Json.Linq;
@@ -16,8 +15,8 @@ namespace WebApi.Controllers
 {
     public class VacanciesController : BoTController<Vacancy, VacancyDTO>
     {
-        public VacanciesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
-            : base (repoFatory, unitOfWork, errorRepo)
+        public VacanciesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork)
+            : base (repoFatory, unitOfWork)
         {
 
         }

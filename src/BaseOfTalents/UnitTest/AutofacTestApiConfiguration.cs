@@ -4,41 +4,28 @@ using Data.EFData;
 using Data.EFData.Repositories;
 using Data.Infrastructure;
 using Domain.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 using System.Reflection;
-using System.Web;
 using System.Web.Http;
-using Data.Infrastructure;
 using Domain.Entities;
 
-namespace WebApi
+namespace UnitTest
 {
-    public class AutofacWebApiConfiguration
+    public class AutofacTestApiConfiguration
     {
-        public static IContainer Container;
+        public static Autofac.IContainer Container;
         public static void Initialize(HttpConfiguration config)
         {
             Initialize(config, RegisterServices(new ContainerBuilder()));
         }
-        public static void Initialize(HttpConfiguration config, IContainer container)
+        public static void Initialize(HttpConfiguration config, Autofac.IContainer container)
         {
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
 
-        private static IContainer RegisterServices(ContainerBuilder builder)
+        private static Autofac.IContainer RegisterServices(ContainerBuilder builder)
         {
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-
-            builder.RegisterType<EFErrorRepository>()
-                .As<IErrorRepository>()
-                .InstancePerRequest();
-
-            builder.RegisterType<BOTContext>()
-            .As<DbContext>()
-           .InstancePerRequest();
 
             builder.RegisterType<EFCandidateRepository>()
                 .As<IRepository<Candidate>>()
@@ -48,7 +35,7 @@ namespace WebApi
                 .As<IRepository<Vacancy>>()
                 .InstancePerRequest();
 
-            builder.RegisterType<DbFactory>()
+            builder.RegisterType<SQLiteDbFactory>()
                 .As<IDbFactory>()
                 .InstancePerRequest();
 

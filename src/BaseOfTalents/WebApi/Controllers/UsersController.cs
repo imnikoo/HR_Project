@@ -14,8 +14,8 @@ namespace WebApi.Controllers
 {
     public class UsersController : BoTController<User, UserDTO>
     {
-        public UsersController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
-            : base (repoFatory, unitOfWork, errorRepo)
+        public UsersController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork)
+            : base (repoFatory, unitOfWork)
         {
 
         }

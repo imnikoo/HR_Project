@@ -11,8 +11,8 @@ namespace WebApi.Controllers
 {
     public class LanguagesController : BoTController<Language, LanguageDTO>
     {
-        public LanguagesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
-            : base (repoFatory, unitOfWork, errorRepo)
+        public LanguagesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork)
+            : base (repoFatory, unitOfWork)
         {
 
         }

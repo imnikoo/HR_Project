@@ -11,8 +11,8 @@ namespace WebApi.Controllers
 {
     public class CountriesController : BoTController<Country, CountryDTO>
     {
-        public CountriesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
-            : base (repoFatory, unitOfWork, errorRepo)
+        public CountriesController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork )
+            : base (repoFatory, unitOfWork)
         {
 
         }

@@ -22,7 +22,7 @@ namespace WebApi.Controllers
         where ViewModel : new()
     {
         protected IDataRepositoryFactory _repoFactory;
-        protected IErrorRepository _errorRepository;
+        protected IRepository<Error> _errorRepository;
 
         protected readonly IUnitOfWork _unitOfWork;
         protected static int ENTITIES_PER_PAGE = 30;
@@ -32,12 +32,12 @@ namespace WebApi.Controllers
             ContractResolver = new CamelCasePropertyNamesContractResolver()
         };
         
-        public BoTController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork, IErrorRepository errorRepo)
+        public BoTController(IDataRepositoryFactory repoFatory, IUnitOfWork unitOfWork)
         {
             _repoFactory = repoFatory;
             _unitOfWork = unitOfWork;
-            _errorRepository = errorRepo;
         }
+
         public BoTController()
         {
 
@@ -153,6 +153,8 @@ namespace WebApi.Controllers
 
         protected IHttpActionResult CreateResponse(HttpRequestMessage request, Func<IHttpActionResult> function)
         {
+            _errorRepository = _repoFactory.GetDataRepository<Error>(request);
+
             IHttpActionResult response = null;
             try
             {
