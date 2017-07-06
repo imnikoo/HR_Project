@@ -1,0 +1,90 @@
+@import '../../common.scss';
+
+.profile-photo-container {
+   padding: 0px;
+   max-height: $rem-base*9.375;
+   max-width: $rem-base*6.25;
+   margin-bottom: $rem-base;
+}
+
+input.social-input[type="url"] {
+   margin: 0px;
+}
+
+.candidate-oi-select {
+   margin-bottom: $rem-base;
+}
+
+.technologies-select {
+   padding-right: $rem-base;
+}
+.no-wrap {
+   flex-wrap: wrap;
+}
+@mixin overrided-button() {
+    @include button ( $background: #fff, $color: #0097a7, $background-hover: rgba(0, 151, 167, 0.25));
+    border: solid 1px $primary-color;
+    :hover {
+        color: #03899C;
+    }
+}
+.overrided-button {
+    @include overrided-button();
+}
+.key-word {
+    font-weight: 700;
+}
+
+img.candidate-photo {
+   margin-bottom: 0;
+}
+
+.coming-soon-text {
+   padding: $rem-base;
+   font-size: $rem-base;
+}
+
+tr.duplicate-row-link {
+  cursor: pointer;
+  background-color: white;  
+}
+
+tr:nth-child(2n) {
+  background: lighten($gray-light, 2);
+}
+
+div.duplicates-box {
+  background-color: #fce6e2;
+  padding-left: $rem-base*0.125;
+  padding-bottom: $rem-base*0.5;
+  padding-right: $rem-base*0.5;
+  margin-left: $rem-base*0.625;
+  margin-right: $rem-base*0.75;
+  margin-top: 0px;
+  margin-bottom: $rem-base*0.5;
+  padding-top: $rem-base;
+}
+
+tbody tr.duplicate-row-link:hover td{
+  background-color: darken($gray-light, 1);
+}
+
+th.duplicates-header {
+  text-align: left;
+}
+
+span.duplicates-title {
+  font-size: $rem-base;
+  color: #d14;
+  font-weight: bold;
+  padding-left: $rem-base*0.5;
+}
+
+fieldset.social-fieldset {
+  padding-bottom: 0px;
+}
+
+.force-save-button {
+  margin: $rem-base*0.5;
+  position: right;
+}

@@ -1,0 +1,133 @@
+<div ui-view></div>
+   <div class="secondary-menu grid-block">
+      <div class="large-2 grid-block">
+         <div class="grid-content">
+            <h5 ng-bind="::'VACANCIES.BASE_OF_VACANCIES' | translate"></h5> </div>
+      </div>
+      <div class="large-8 grid-block"> </div>
+      <div class="large-2 grid-block align-right">
+         <ul class="menu-bar second-button-bar">
+            <li ng-if="candidateIdToGoBack" >
+              <a ng-click="goBackToCandidate()" ng-bind="::'COMMON.ADD_AND_BACK' | translate"></a>
+            </li>
+         </ul>
+      </div>
+   </div>
+   <div class="grid-block">
+      <div class="medium-3 grid-block">
+         <div class="sidebar">
+            <div class="card-divider"> 
+               <div class="grid-block">
+                  <div  class="medium-8 grid-block" ng-bind="::'VACANCIES.SEARCH_VACANCIES' | translate"></div>
+                  <div class="medium-4 grid-block align-right">
+                     <a ng-click="clear()" ng-bind="::'COMMON.CLEAR' | translate"></a>
+                  </div>
+               </div>
+            </div>
+            <div class="card-section">
+               <form name="searchVacancy">               
+                  <input ng-model="vacancyPredicate.title" placeholder="Position" type="text">
+
+                  <oi-select class="multiple-select"
+                             oi-options="level.id as level.title for level in thesaurus.level | orderBy : 'title'"
+                             ng-model="vacancyPredicate.levelIds"
+                             multiple
+                             placeholder="{{::'COMMON.LEVEL' | translate}}">
+                  </oi-select>
+                  
+                  <oi-select class="multiple-select"
+                             oi-options="department.id as department.title for department in thesaurus.department | orderBy : 'title'"
+                             ng-model="vacancyPredicate.departmentId"
+                             oi-select-options="{ cleanModel: true }"
+                             placeholder="{{::'COMMON.DEPARTMENT' | translate}}">
+                  </oi-select>
+                  
+                  <oi-select class="multiple-select"
+                             oi-options="city.id as city.title for city in locations | orderBy : 'title'"
+                             ng-model="vacancyPredicate.cityIds"
+                             multiple placeholder="{{::'COMMON.LOCATION' | translate}}">
+                  </oi-select>
+
+                  <oi-select class="multiple-select"
+                             oi-options="state.value as getStateTitle(state.translateTitleKey)
+                                         for state in utils.states" 
+                             ng-model="vacancyPredicate.vacancyState"
+                             oi-select-options="{ cleanModel: true }"
+                             placeholder="{{::'COMMON.STATUS' | translate}}">
+                  </oi-select>
+
+                  <oi-select class="multiple-select"
+                             oi-options="responsible.id as getFullName(responsible)
+                                        for responsible in searchResponsible($query)
+                                        | orderBy : 'lastName+ \'|\' + firstName'"
+                             ng-model="vacancyPredicate.userId"
+                             oi-select-options="{ cleanModel: true }"
+                             placeholder="{{::'COMMON.RESPONSIBLE' | translate}}">
+                  </oi-select>
+
+                  <oi-select class="multiple-select"
+                             oi-options="typeOfEmployment.id as typeOfEmployment.title
+                                        for typeOfEmployment in thesaurus.typeOfEmployment
+                                        | orderBy : 'title'"
+                             ng-model="vacancyPredicate.typeOfEmployment"
+                             oi-select-options="{ cleanModel: true }"
+                             placeholder="{{::'COMMON.TYPE_OF_EMPLOYMENT' | translate}}">
+                  </oi-select>
+
+                  <oi-select class="multiple-select"
+                             oi-options="industry.id as industry.title for industry in thesaurus.industry | orderBy : 'title'" ng-model="vacancyPredicate.industryId"
+                             oi-select-options="{ cleanModel: true }"
+                             placeholder="{{::'COMMON.INDUSTRY' | translate}}">
+                  </oi-select>
+
+                  <a class="expand button" ng-click="searchVacancies()" ng-bind="::'INDEX.SEARCH' | translate"></a>
+               </form>
+            </div>
+         </div>
+      </div>
+      <div class="medium-9 grid-block">
+         <div class="main-card">
+            <div class="card-divider" ng-bind="::'VACANCIES.VACANCIES' | translate"> </div>
+            <div class="card-section entities-list-container">
+               <table class="vacancies-list">
+                  <thead>
+                     <tr>
+                        <th ng-if="$state.params.candidateIdToGoBack">
+                           <input id="vacancy" type="checkbox" ng-model="toogleContainer.isAllToogled" ng-change="toogleAll()">
+                        </th>
+                        <th>№</th>
+                        <th class="vacancy-title"> <a ng-click="sortBy('Title')"><span ng-bind="::'COMMON.TITLE' | translate"></span> <i ng-class="getArrow('Title')"></i></a></th>
+                        <th> <a ng-click="sortBy('Department')"><span ng-bind="::'COMMON.DEPARTMENT' | translate"></span> <i ng-class="getArrow('Department')"></i></a></th>
+                        <th> <a ng-click="sortBy('State')"><span ng-bind="::'COMMON.STATUS' | translate"></span> <i ng-class="getArrow('State')"></i></a></th>
+                        <th class="vacancy-cities"> <a ng-click="sortBy('Cities')"><span ng-bind="::'COMMON.LOCATION' | translate" class="col4"></span> <i ng-class="getArrow('Cities')"></i></a></th>
+                        <th> <a ng-click="sortBy('Responsible')"><span ng-bind="::'COMMON.RESPONSIBLE' | translate"></span> <i ng-class="getArrow('Responsible')"></i></a></th>
+                        <th> <a ng-click="sortBy('CreatedOn')"><span ng-bind="::'COMMON.ADDED' | translate"></span> <i ng-class="getArrow('CreatedOn')"></i></a></th>
+                        <th></th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr dir-paginate="vacancyItem in vacancies.vacancies | itemsPerPage: vacancyPredicate.size" total-items="vacancies.total" current-page="vacancyPredicate.current">
+                         <th ng-if="$state.params.candidateIdToGoBack">
+                           <input id="checkbox9" type="checkbox" ng-disabled="isVacancyAlreadyAttached(vacancyItem)" ng-model="vacancyItem.isToogled" ng-change="toogleVacancy(vacancyItem)">
+                        </th>
+                        <td ng-bind="{{(vacancies.current - 1) * vacancies.size + $index+1}}"></td>
+                        <td class="vacancy-title">
+                           <a ng-click="viewVacancy(vacancyItem)" ng-bind="::vacancyItem.title"></a>
+                           <span ng-if="vacancyItem.closingCandidateId" class="hire-tag" ng-bind="::'VACANCY.CLOSED' | translate"></span>
+                        </td>
+                        <td class="vacancy-department" ng-bind="::vacancyItem.departments | arrayAsString: 'title'"></td>
+                        <td ng-bind="::vacancyItem.entityStates[0].title"></td>
+                        <td class="vacancy-cities" ng-bind="::vacancyItem.cities | arrayAsString: 'title'"></td>
+                        <td ng-bind="::(vacancyItem.responsible.lastName +' '+ vacancyItem.responsible.firstName)"></td>
+                        <td ng-bind="::vacancyItem.createdOn  | date: 'mediumDate'"></td>
+                        <td> <a ng-click="editVacancy(vacancyItem)"><i class="foundicon-edit general-icon"></i></a> <a ng-click="deleteVacancy(vacancyItem)"><i class="foundicon-trash general-icon"></i></a> </td>
+                     </tr>
+                  </tbody>
+               </table>
+               <div class="switch-pages">
+                  <dir-pagination-controls boundary-links="true" [auto-hide="" ] on-page-change="pageChanged(newPageNumber)"> </dir-pagination-controls>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>

@@ -1,0 +1,154 @@
+<div ui-view></div>
+<div class="secondary-menu grid-block">
+   <div class="large-2 grid-block">
+      <div class="grid-content">
+         <h5 ng-bind="::'CANDIDATES.BASE_OF_CANDIDATES' | translate"></h5>
+      </div>
+   </div>
+   <div class="large-7 grid-block">
+   </div>
+   <div class="large-3 grid-block align-right">
+      <ul class="menu-bar second-button-bar align-right">
+         <li>
+            <a ng-if="vacancyIdToGoBack" ng-click="goBackToVacancy()" ng-bind="::'COMMON.ADD_AND_BACK' | translate"></a>
+         </li>
+      </ul>
+   </div>
+</div>
+<div class="grid-block">
+   <div class="grid-block">
+      <div class="medium-3 grid-block">
+         <div class="sidebar">
+            <div class="card-divider">
+               <div class="grid-block">
+                  <div class="medium-8 grid-block" ng-bind="::'CANDIDATES.SEARCH_CANDIDATES' | translate"></div>
+                  <div class="medium-4 grid-block align-right">
+                     <a ng-click="clear()" ng-bind="::'COMMON.CLEAR' | translate"></a>
+                  </div>
+               </div>
+            </div>
+            <form name="searchCandidatesForm">
+              <div class="card-section">              
+               <input ng-model="candidatePredicate.technology" placeholder="{{::'CANDIDATES.TECHNOLOGY' | translate}}" type="text">
+               <input ng-model="candidatePredicate.position" placeholder="{{::'CANDIDATE.POSITION' | translate}}" type="text">
+               <input ng-model="candidatePredicate.firstName" placeholder="{{::'COMMON.FIRST' | translate}}" type="text">
+               <input ng-model="candidatePredicate.lastName" placeholder="{{::'COMMON.LAST' | translate}}" type="text">
+
+               <oi-select class="multiple-select"
+                          oi-options="city.id as city.title for city in locationsSort(thesaurus.city)"
+                          ng-model="candidatePredicate.citiesIds"
+                          multiple
+                          oi-select-options="{ cleanModel: true }"
+                          placeholder="{{::'COMMON.LOCATION' | translate}}">
+               </oi-select>
+
+               <oi-select class="multiple-select"
+                          oi-options="industry.id as industry.title for industry in thesaurus.industry | orderBy : 'title'"
+                          ng-model="candidatePredicate.industryId"
+                          oi-select-options="{ cleanModel: true }"
+                          placeholder="{{::'COMMON.INDUSTRY' | translate}}">
+               </oi-select>
+               <ul class="some-change">
+                  <li>
+                     <input ng-model="candidatePredicate.isMale" name="isMale" ng-value="true" id="male" type="radio">
+                     <label for="male" ng-bind="::'COMMON.MALE' | translate"></label>
+                  </li>
+                  <li>
+                     <input ng-model="candidatePredicate.isMale" name="isMale" ng-value="null" id="both" type="radio">
+                     <label for="both" ng-bind="::'COMMON.BOTH' | translate"></label>
+                  </li>
+                  <li>
+                     <input ng-model="candidatePredicate.isMale" name="isMale" ng-value="false" id="female" type="radio">
+                     <label for="female" ng-bind="::'COMMON.FEMALE' | translate"></label>
+                  </li>
+               </ul>
+               <div class="range-slider">
+                  <div class="grid-block">
+                     <label ng-bind="::'CANDIDATE.CANDIDATE_AGE' | translate"></label>&nbsp;
+                     <input id="ageSlider" type="checkbox" ng-model="isActiveAgeField" ng-change="useAgeInSearch()">
+                  </div>
+                  <rzslider ng-if="isActiveAgeField" rz-slider-model="slider.min" rz-slider-high="slider.max" rz-slider-options="slider.options"></rzslider>
+               </div>
+               <label ng-bind="::'CANDIDATE.EXPERIENCE' | translate"></label>
+               <div class="grid-block">
+                  <div class="medium-6 grid-block">
+                     <input placeholder="{{::'COMMON.YEARS' | translate}}" type="tel" ng-model='candidatePredicate.experienceYears' name="expYears" validator="counter=50" ui-mask="9?9?" ui-mask-placeholder ui-mask-placeholder-char="space" counter-error-message="{{::'ERRORS.COUNTER' | translate:'{count: 50}'}}">
+                  </div>
+                  <div class="medium-6 grid-block">
+                     <input placeholder="{{::'COMMON.MONTHS' | translate}}" type="tel" ng-model="candidatePredicate.experienceMonths" name="expMonths" validator="counter=11" ui-mask="9?9?" ui-mask-placeholder ui-mask-placeholder-char="space" counter-error-message="{{::'ERRORS.COUNTER' | translate:'{count: 11}'}}">
+                  </div>
+               </div>
+
+               <div class="grid-block">
+                  <div class="medium-4 grid-block">
+                     <input ng-model="candidatePredicate.minSalary" placeholder="{{::'COMMON.SALARY_MIN' | translate}}" type="tel" name="salaryMin" , validator="counter=1000000" ui-mask="9?9?9?9?9?9?9?" ui-mask-placeholder ui-mask-placeholder-char="space" counter-error-message="{{::'ERRORS.COUNTER' | translate:'{count: 1000000}'}}" class="salary-input">
+                  </div>
+                  <div class="medium-4 grid-block">
+                     <input ng-model="candidatePredicate.maxSalary" placeholder="{{::'COMMON.SALARY_MAX' | translate}}" type="tel" name="salaryMax" , validator="counter=1000000, mincount" min-count-value="{{candidatePredicate.minSalary}}" ui-mask="9?9?9?9?9?9?9?" ui-mask-placeholder ui-mask-placeholder-char="space" counter-error-message="{{::'ERRORS.COUNTER' | translate:'{count: 1000000}'}}"  class="salary-input">
+                  </div>
+                  <div class="medium-4 grid-block">
+                     <oi-select class="multiple-select" oi-options="currency.id as currency.title for currency in thesaurus.currency" ng-model="candidatePredicate.currencyId" oi-select-options="{ cleanModel: true }" placeholder="{{::'COMMON.CURRENCY' | translate}}" name="vacancyCurrency" validator="required" is-need-required="{{ !!candidatePredicate.minSalary || !!candidatePredicate.maxSalary }}" valid-method="watch"></oi-select>
+                  </div>
+               </div>
+               <language-skills selected-skills="candidatePredicate.convertedLanguageSkills"></language-skills>
+               <a class="expand button" ng-click="submit(searchCandidatesForm)" ng-bind="::'INDEX.SEARCH' | translate"></a>
+            </div>
+            </form>
+         </div>
+      </div>
+      <div class="medium-9 grid-block">
+         <div class="main-card">
+            <div ng-bind="::'CANDIDATES.CANDIDATES' | translate" class="card-divider">
+            </div>
+            <div class="card-section">
+               <table class="candidates-list">
+                  <thead>
+                     <tr>
+                        <th ng-if="$state.params.vacancyIdToGoBack">
+                           <input id="candidate" type="checkbox" ng-model="toogleContainer.isAllToogled" ng-change="toogleAll()">
+                        </th>
+                        <th>№</th>
+                        <th class="candidate-name"> <a ng-click="sortBy('LastName')"><span ng-bind="::'CANDIDATE.FULL_NAME' | translate"></span> <i ng-class="getArrow('LastName')"></i></a></th>
+                        <th><a ng-click="sortBy('Industry')"><span ng-bind="::'COMMON.INDUSTRY' | translate"></span> <i ng-class="getArrow('Industry')"></i></a></th>
+                        <th><a ng-click="sortBy('MainSource')"><span ng-bind="::'CANDIDATE.SOURCE' | translate"></span> <i ng-class="getArrow('MainSource')"></i></a></th>
+                        <th class="candidate-position"><a ng-click="sortBy('PositionDesired')"><span ng-bind="::'CANDIDATE.POSITION' | translate"></span> <i ng-class="getArrow('PositionDesired')"></i></a></th>
+                        <th><a ng-click="sortBy('SalaryDesired')"><span ng-bind="::'COMMON.SALARY' | translate"></span> <i ng-class="getArrow('SalaryDesired')"></i></a></th>
+                        <th><a ng-click="sortBy('CreatedOn')"><span ng-bind="::'COMMON.ADDED' | translate"></span> <i ng-class="getArrow('CreatedOn')"></i></a></th>
+                        <th></th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr dir-paginate="c in candidates.candidate | itemsPerPage: candidates.size" total-items="candidates.total" current-page="candidatePredicate.current">
+                        <th ng-if="$state.params.vacancyIdToGoBack">
+                           <input id="checkbox9" type="checkbox" ng-disabled="isCandidateAlreadyAttached(c)" ng-model="c.isToogled" ng-change="toogleCandidate(c)">
+                        </th>
+                        <td ng-bind="{{(candidates.current - 1) * candidates.size+$index + 1}}"></td>
+                        <td class="candidate-name">
+                           <a ng-click="viewCandidate(c)" ng-bind="::(c.lastName+' '+c.firstName)"></a>
+                           <span ng-if="c.closedVacanciesIds.length" class="hire-tag" ng-bind="::'CANDIDATE.HIRED' | translate"></span>
+                        </td>
+                        <td ng-bind="c.industry.title"></td>
+                        <td ng-bind="c.mainSource.title"></td>
+                        <td class="candidate-position" ng-bind="::c.positionDesired"></td>
+                        <td>
+                           <span ng-if="c.salaryDesired" ng-bind="::(c.salaryDesired+' '+c.currency.title)"></span>
+                        </td>
+                        <td ng-bind="::c.createdOn"></td>
+                        <td>
+                           <a ng-click="deleteCandidate(c.id)"><i class="foundicon-trash general-icon"></i>
+                        </a>
+                           <a ng-click="editCandidate(c)"><i class="foundicon-edit general-icon"></i>
+                        </a>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+               <div class="switch-pages">
+                  <dir-pagination-controls boundary-links="true" [auto-hide="" ] on-page-change="pageChanged(newPageNumber)">
+                  </dir-pagination-controls>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

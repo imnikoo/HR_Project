@@ -1,0 +1,378 @@
+{
+   "INDEX": {
+      "HOME": "Home",
+      "CANDIDATES": "Candidates",
+      "VACANCIES": "Vacansies",
+      "REPORTS" : "Reports",
+      "CALENDAR" : "Calendar",
+      "SETTINGS" : "Settings",
+      "MY_BOT": "My BOT",
+      "SEARCH": "Search",
+      "USER_NAME": "User Name"
+   },
+   "CANDIDATE": {
+      "CANDIDATE": "Candidate",
+      "ERROR": "Sorry! Some error occurred",
+      "NEW_CANDIDATE": "New candidate",
+      "DESIRED_SALARY": "Desired salary",
+      "DESIRED_POSITION": "Desired position",
+      "STAGE": "Stage",
+      "SOURCE": "Source",
+      "POSITION": "Position",
+      "HIRED" : "Hired",
+      "FULL_NAME": "Full name",
+      "CANDIDATE_NAME": "Candidate name",
+      "READY_TO_RELOCATE": "Ready to relocate",
+      "CANDIDATE_AGE": "Candidate's age",
+      "EXPERIENCE": "Experience",
+      "CANDIDATE_PROFILE": "Candidate profile",
+      "CANDIDATE_RESUME": "Candidate's resume",
+      "AGE": "Age",
+      "EXPERIENCE": "Experience",
+      "PARSING_SOURCES":"Parsing sources",
+      "SIMILAR_CANDIDATES" : "Similar candidates:"
+   },
+   "CANDIDATES": {
+      "CANDIDATES": "Candidates",
+      "BASE_OF_CANDIDATES": "Base of candidates",
+      "SEARCH_CANDIDATES": "Search candidates",
+      "ALL": "All",
+      "VK": "Vk",
+      "RABOTA": "Rabota",
+      "BOT": "BOT",
+      "DJINNI": "Djinni",
+      "LINKEDIN": "LinkedIn",
+      "WORK": "Work",
+      "HR": "Hh",
+      "TECHNOLOGY": "Technology"
+   },
+   "HOME": {
+      "HOME": "Home"
+   },
+   "VACANCY": {
+      "VACANCY": "Vacancy",
+      "NEW_VACANCY": "New vacancy",
+      "START_DATE": "Start Date",
+      "OPEN": "Open",
+      "PROCESSING": "Processing",
+      "CLOSED": "Closed",
+      "CANCELLED": "Canceled",
+      "PENDING": "Pending",
+      "VACANCY_REMOVE_MESSAGE": "Do you really want to remove this vacancy?",
+      "VACANCY": "Vacancy",
+      "CHILD_VACANCIES": "Child vacancies",
+      "CHILD_VACANCY": "Child",
+      "PARENT_VACANCY": "Parent"
+   },
+   "VACANCIES": {
+      "VACANCIES": "Vacancies",
+      "BASE_OF_VACANCIES": "Base of vacancies",
+      "SEARCH_VACANCIES": "Search vacancies"
+   },
+   "VACANCY_PROFILE": {
+      "VACANCY_PROFILE": "Vacancy profile",
+      "INFORMATION": "Information",
+      "FILES": "Files"
+   },
+   "VACANCY_STAGE_INFO": {
+       "CURRENT_STAGE": "Current stage",
+       "STAGE_PROGRESS": "Stage progress",
+       "HIRE": "Hire",
+       "REJECT": "Reject"
+   },
+   "COMMON": {
+      "ADD": "Add",
+      "ADD_AND_BACK": "Add and back",
+      "ADD_CANDIDATE" : "Add Candidate",
+      "ADD_EVENT" : "Add Event",
+      "ADD_VACANCY" : "Add Vacancy",
+      "CANCEL": "Cancel",
+      "COUNT": "Count",
+      "COMING_SOON": "Coming soon",
+      "CITY": "City",
+      "OK": "Ok",
+      "SUBMIT": "Submit",
+      "SAVE": "Save",
+      "EVENTS": "Events",
+      "NOTES": "Notes",
+      "COMMENT" : "Comment",
+      "COMMENTS": "Comments",
+      "COMMENT_FOR_REJECTING": "Comment for rejecting",
+      "EDIT": "Edit",
+      "LAST": "Last Name",
+      "FIRST": "First Name",
+      "MIDDLE": "Middle Name",
+      "MALE": "Male",
+      "FEMALE": "Female",
+      "EMAIL": "Email",
+      "SKYPE": "Skype",
+      "PHONE": "Phone number",
+      "PASS_STAGE": "Pass stage",
+      "BIRTH": "Birth day",
+      "REMOVE" : "Remove",
+      "TITLE": "Title",
+      "INDUSTRY": "Industry",
+      "LEVEL": "Level",
+      "LANGUAGE": "Language",
+      "LANGUAGE_LEVEL": "Language level",
+      "RESPONSIBLE": "Responsible",
+      "DEPARTMENT": "Department",
+      "SALARY_MIN": "Salary min",
+      "SALARY_MAX": "Salary max",
+      "SALARY": "Salary",
+      "TYPE_OF_EMPLOYMENT": "Type of Employment",
+      "MASTER_VACANCY": "Master vacancy",
+      "STATUS": "Status",
+      "START_DATE": "Start date",
+      "DEADLINE_DATE": "Deadline date",
+      "END_DATE": "End date",
+      "EVENT_DATE": "Event date",
+      "ADD_DEADLINE_TO_CALENDAR": "Add deadline to calendar",
+      "DESCRIPTION": "Description",
+      "LOCATION": "Location",
+      "NAME": "Name",
+      "SIZE": "Size",
+      "SKILLS": "Skills",
+      "TAGS": "Tags",
+      "PHONE_NUMBERS": "Phone numbers",
+      "UPLOAD": "Upload",
+      "DATE_OF_BIRTH": "Date of Birth",
+      "UPLOAD_PHOTO": "Upload photo",
+      "FILE_UPLOADER_ERROR_MESSAGE": "The size of some file exceeds the allowable size!",
+      "VACANCY_SELECTY_MULTIPASS_DIALOG_TITLE" : "Choose vacancies which candidate should pass the same way",
+      "CREATE": "Create",
+      "ADDED": "Added",
+      "YEARS": "Years",
+      "MONTHS": "Months",
+      "HISTORY": "History",
+      "DATE": "Date",
+      "STAGE" : "Stage",
+      "CLEAR" : "Clear",
+      "FILES" : "Files",
+      "ADDED_FILES" : "Added files",
+      "FILES_TO_UPLOAD" : "Files to upload",
+      "SHOW_ALL_ACTIONS" : "Show all actions",
+      "SHOW_COMMENTS_ONLY" : "Show comments only",
+      "NEW" : "New",
+      "FROM_BOT" : "From BOT",
+      "FROM" : "from",
+      "FIELD" : "Field",
+      "NEW_VALUE": "New value",
+      "PAST_VALUE": "Previous value",
+      "TO" : "to",
+      "MORE": "MORE",
+      "APLY" : "Apply",
+      "ATTACH" : "Attach",
+      "CURRENCY" : "Currency",
+      "MAIN_SOURCE" : "Main source",
+      "EVENT_CALENDAR" : "Event calendar",
+      "USER": "User",
+      "USERS" : "Users",
+      "EVENT_TYPE": "Event type",
+      "CREATED_ON": "Created on:",
+      "AUTHOR": "Author:",
+      "BACK": "Back",
+      "FOR": "for",
+      "BOTH" : "Both",
+      "CLOSE": "Close",
+      "FORCE_SAVE" : "Force save"
+   },
+   "THESAURUSES" : {
+      "COUNTRIES" : "Countries",
+      "SOCIALS" : "Social networks",
+      "LANGUAGES" : "Languages",
+      "LOCATIONS" : "Locations",
+      "DEPARTMENTS" : "Departments",
+      "DEPARTMENT_GROUPS" : "Department groups",
+      "INDUSTRIES" : "Industries",
+      "SKILLS" : "Skills",
+      "TAGS" : "Tags",
+      "STAGES" : "Stages",
+      "LEVELS" : "Levels",
+      "THESAURUSES.EVENT_TYPES" : "Event types",
+      "THESAURUSES.CURRENCY" : "Currency",
+      "THESAURUS_LABEL" : "Thesaurus"
+   },
+   "VALIDATION": {
+      "required": {
+         "error": "*Required!",
+         "success": "It's Required"
+      },
+      "url": {
+         "error": "*this should be Url",
+         "success": "It's Url"
+      },
+      "email": {
+         "error": "*this should be Email",
+         "success": "It's Email"
+      },
+      "number": {
+         "error": "*this should be Number",
+         "success": "It's Number"
+      },
+      "minlength": {
+         "error": "*this should be longer",
+         "success": "Long enough!"
+      },
+      "maxlength": {
+         "error": "*this should be shorter",
+         "success": "Short enough!"
+      },
+      "name": {
+         "error": "*this should be from 1 to 50 symbols",
+         "success": "Correct!"
+      },
+      "title": {
+         "error": "*this should be from 3 to 50 symbols",
+         "success": "Correct!"
+      },
+      "date": {
+         "error": "*it is invalid date",
+         "success": "Correct!"
+      },
+      "letters": {
+         "error": "*it seems there is not a name",
+         "success": "Correct!"
+      },
+      "counter": { 
+         "error": "*this should be number from 1 to 30",
+         "success": "Correct!"
+      },
+      "mincount": {
+         "error": "*this should be more then min value",
+         "success": "Correct!" 
+      },
+      "compare": {
+         "error": "*sorry, there is not the same",
+         "success":""
+      }
+   },
+   "ERRORS" : {
+      "someErrorMsg" : "Sorry! Some error occurred: ",
+      "thesaurusErrors" : {
+         "incorrectNameMsg" : "Thesaurus name is incorrect."
+      },
+      "NOTE_REMOVE_ERROR": "Cannot remove new note",
+      "COUNTER": "this should be number from 1 to {{count}}"
+   },
+   "SETTINGS" : {
+      "SETTINGS": "Settings",
+      "PROFILE" : "Profile",
+      "MEMBERS" : "Team members",
+      "ROLES" : "Roles",
+      "RECRUITING" : "Recruiting settings",
+      "PASS" : "Your password",
+      "NEW_PASS" : "New password",
+      "CONFIRM_PASS" : "Confirm new password"
+   },
+   "PROFILE" : {
+      "CHANGE_PASS": "Change password",
+      "OLD": "Old passwod",
+      "NEW": "New password",
+      "CONF": "Confirm password",
+      "PAS_CHANGED": "Password was successfully changed",
+      "CHANGED": "Your profile data was successfully changed",
+      "UPLOAD": "Upload photo"
+   },
+   "ROLES" : {
+      "NEW": "New role",
+      "NAME": "Enter role name",
+      "CONFIRM": "Are you sure that you want to delete '{{title}}' role?",
+      "SAVED": "Role was successfully saved",
+      "REMOVED": "Role was successfully removed",
+      "CREATED": "Role '{{title}}' was successfully created",
+      "REDIRECT": "This role contains such users: {{users}}. Please replace them into another role or delete before role deleting. Press ok for redirect into members",
+      "ROLE":"Role"
+   },
+   "DIALOG_SERVICE" : {
+      "ERROR": "Error!",
+      "SUCCESS": "Success!",
+      "WARN": "Warning!",
+      "NOTIF": "Notification!",
+      "CONFIRM": "Confirm please!",
+      "SUCCESSFUL_SAVING": "Vacancy was successfully saved!",
+      "ERROR_SAVING": "Some error has occurred while saving vacancy!",
+      "VACANCY_LOCATION_VALIDATION_MESSAGE": "The first location of the vacancy should match the responsible user's location. Responsible user's location is: ",
+      "SUCCESSFUL_REMOVING": "Vacancy was successfully removed!",
+      "ERROR_VACANCIES_SEARCH": "Some error has occurred while receiving vacancies from database!",
+      "SUCCESSFUL_SAVING_EVENT": "Event was successfully saved!",
+      "SUCCESSFUL_REMOVING_EVENT": "Event was successfully removed!",
+      "SUCCESSFUL_REMOVING_COMMENT": "Comment was successfully removed!",
+      "NOTE_REMOVING_DIALOG": "Do you really want to remove this note?",
+      "CANDIDATE_REMOVING_DIALOG": "Do you really want to remove this candidate?",
+      "SUCCESSFUL_REMOVING_CANDIDATE": "Candidate was successfully removed!",
+      "SUCCESSFUL_CANDIDATE_SAVING": "Candidate was successfully saved!",
+      "ERROR_CANDIDATE_SAVING": "Some error has occurred while saving candidate!",
+      "ERROR_CANDIDATES_SEARCH": "Some error has occurred while receiving candidates from database!",
+      "EVENT_REMOVING_DIALOG": "Do you really want to remove this event?",
+      "INVALID_DATES": "End date cannot be less than start date",
+      "EMPTY_REPORT_CONDITIONS": "Please select at least one user or location",
+      "EMPTY_CANDIDATE_REPORT_CONDITIONS": "Please select at least one candidate or period of time (start date and end date)",
+      "EMPTY_DATE_REPORT_CONDITIONS": "Please select start date and end date",
+      "ERROR_SIMILAR_CANDIDATES" : "Similar candidates already exist in database. Please, check your candidate. Click Force Save if you still want to save entered candidate."
+   },
+
+   "MEMBERS" : {
+      "INVITE" : "Invite a new member",
+      "INVITE_MEMBER" : "Invite member in '{{roleTitle}}'!",
+      "LOGIN" : "Login",
+      "CHANGED": "Role was succesfully changed",
+      "CONFIRM": "Are you sure that you want to delete '{{login}}' user?",
+      "REMOVED": "User was succesfully removed",
+      "INVITE_BUT": "Invite",
+      "INVITED_NEW": "New user was successfully invited!"
+   },
+
+   "LOGIN" : {
+      "MESSAGE" : "Please, provide login information",
+      "OK" : "OK",
+      "CANCEL" : "Cancel",
+      "LOGIN" :"Login",
+      "PASSWORD" : "Password",
+      "SESSION_EXPIRED":"Sorry, your session has expired, please login again",
+      "FORGOT": "Forgot account?",
+      "PLEASE_LOGIN": "Hello, please login"
+   },
+   
+   "RECOVER" : {
+      "HEADER" : "Recover account",
+      "SEND"   : "Send new password to your email",
+      "LOGIN_OR_EMAIL" : "Enter login or email",
+      "CHANGED" : "Your password was successfully changed and sent to your email"
+   },
+   
+   "REPORTS" : {
+      "REPORTS" : "Reports",
+      "USERS_REPORT" : "Users report",
+      "VACANCIES_REPORT" : "Vacancies report",
+      "RECRUITING_FUNNEL" : "Recruiting funnel",
+      "CANDIDATES_ATTACHED_TO_VACANCY" : "Candidates attached to vacancy",
+      "REPORT_CONDITIONS" : "Conditions",
+      "USER_REPORT_CHART" : "Users' report chart",
+      "VACANCY_REPORT_CHART" : "Vacancies' report chart",
+      "USER_REPORT_DATA" : "Users' report data",
+      "VACANCY_REPORT_DATA" : "Vacancies' report data",
+      "DATE_RANGE" : "Date range",
+      "GENERATE" : "Generate",
+      "CLOSED" : "Closed",
+      "ACTIVE_VACANCIES" : "Active vacancies",
+      "PENDING" : "Pending",
+      "OPEN" : "Open",
+      "IN_PROGRESS" : "In progress",
+      "DYNAMICS" : "Dynamics of the reporting period",
+      "CANCELED" : "Canceled",
+      "FOR_BEGINING" : "at the beginning of period",
+      "FOR_END": "at the end of period",
+      "FOR_SELECTED": "at the selected date",
+      "ADDITIONAL_INFORMATION": "Additional information",
+      "DATE_ADDITIONS": "Date additions",
+      "DATE_OF_PASSAGE": "Date of passage",
+      "NO_INFORMATION": "There are not information for the selected parameters in database!",
+      "START_DATE_CHART": "Start date report chart",
+      "PERIOD_DATE_CHART": "Dynamic report chart",
+      "END_DATE_CHART": "End date report chart",
+      "CANDIDATES_REPORT" : "Candidates report",
+      "CANDIDATES_REPORT_DATA" : "Candidates' report data",
+      "EXPORT_TO_EXCEL" : "Export report to excel"
+   }
+}

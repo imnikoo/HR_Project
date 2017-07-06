@@ -1,0 +1,11 @@
+<div  class="main-card thesaurus">
+   <div class="thesaurus-select">
+      <div class="thesaurus-label"><span ng-bind="::'THESAURUSES.THESAURUS_LABEL' | translate"></span> : </div>
+      <oi-select class="multiple-select"
+              oi-options="thesaurusName for thesaurusName in thesaurusNames | orderBy"
+              ng-model="currentThesaurusName">
+      </oi-select>
+   </div>        
+   <thesaurus ng-repeat="thesaurusName in ::thesaurusNames" name="{{::thesaurusName}}" 
+              ng-if="thesaurusName===currentThesaurusName"></thesaurus>
+</div>

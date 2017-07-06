@@ -1,0 +1,17 @@
+@import '../../common.scss';
+
+.modal {
+   max-width: $rem-base*80;
+   width: auto;
+   height: auto;
+   max-height: $rem-base*60;
+   position: relative;
+   min-width: $rem-base*31.25;
+}
+.dialog-button-group {
+   margin-top: $rem-base / 4;
+   float: right;
+   a {
+       margin-left: $rem-base/2;
+   }
+}

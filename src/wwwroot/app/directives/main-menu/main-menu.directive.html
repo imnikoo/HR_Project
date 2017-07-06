@@ -1,0 +1,29 @@
+<div class="main-menu">
+   <div class="large-2 grid-content">
+      <a zf-hard-toggle="menu" ng-click="pr($event)"><img src="/app/images/menu.png"></a>
+      <a ui-sref="home">
+         <img class="menu-img for-large-screen" src="/app/images/bot-home.png">
+         <span ng-bind="::'INDEX.MY_BOT' | translate"></span>
+      </a>
+   </div>
+   <div class="large-3 grid-block"></div>
+   <div class="large-5 grid-content">
+      <ul class="main-button-bar">
+         <li>
+            <a ng-click="goCandidate()">
+               <img src="/app/images/add-user.png">
+               <span class="for-large-screen" ng-bind="::'COMMON.ADD_CANDIDATE' | translate"></span>
+            </a>
+         </li>
+         <li>
+            <a ng-click="goVacancy()">
+               <img src="/app/images/add.png">
+               <span class="for-large-screen" ng-bind="::'COMMON.ADD_VACANCY' | translate"></span>
+            </a>
+         </li>
+      </ul>
+   </div>
+   <div class="large-2 grid-content align-right">
+      <login></login>
+   </div>
+</div>

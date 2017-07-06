@@ -1,0 +1,13 @@
+@import '../../common.scss';
+
+phones {
+   display: block;
+   clear: both;
+   width: 100%;
+   position: relative;
+
+   .add-phone-number {
+      position: absolute;
+      right: $rem-base*0.125;
+   }   
+}

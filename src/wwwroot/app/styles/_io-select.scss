@@ -1,0 +1,32 @@
+.select-search-list {
+   list-style-type: none;
+}
+.select-dropdown-optgroup {
+   list-style-type: none;
+}
+oi-select .select-search {
+   padding-left: $rem-base/2;
+   padding-right: $rem-base/2;
+}
+oi-select .select-dropdown-optgroup {
+   padding-left: 0;
+   padding-right: 0;
+}
+oi-select .select-dropdown {
+   max-height: $rem-base*20.71;
+}
+oi-select .select-search-list {
+   .select-search-list-item {
+      margin-left:  0;
+   }
+   padding : 0;
+   li {
+      padding-left: 0;
+      padding-right: 0;
+   }
+}
+.responsible-select {
+   .select-search-list-item {
+      font-size:  $rem-base*0.8;
+   }
+}

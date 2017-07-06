@@ -1,0 +1,280 @@
+<div class="secondary-menu grid-block">
+   <div class="large-3 grid-block">
+      <div class="grid-content">
+         <h5 ng-bind="::'COMMON.ADD_CANDIDATE' | translate"></h5>
+      </div>
+      <div ng-if="!candidateCVLoaded">
+         <a class="overrided-button" ng-click="uploadCV()">Load from CV</a>
+         <input id="cvUploader" ng-hide="true" nv-file-select type="file" uploader="cvUploader">
+      </div>
+   </div>
+   <div class="large-6 grid-block"> </div>
+   <div class="large-3 grid-block align-right">
+      <ul class="menu-bar second-button-bar">
+         <li>
+            <a ng-click="back()" ng-bind="::'COMMON.BACK' | translate"></a>
+         </li>
+         <li>
+            <a ng-click="submit(Candidate)">
+              <span ng-bind="::'COMMON.SAVE' | translate"></span>
+            </a>
+         </li>
+      </ul>
+   </div>
+</div>
+<div class="grid-block">
+   <div class="medium-9 grid-block">
+      <div class="main-card">
+         <div class="card-divider" ng-bind="::'CANDIDATE.NEW_CANDIDATE' | translate"></div>
+         <div class="card-section">
+            <form name="Candidate">
+            <div ng-if='duplicates.length > 0' class="duplicates-box">
+                    <span ng-bind="::'CANDIDATE.SIMILAR_CANDIDATES' | translate" class="duplicates-title"></span>
+                    <table>
+                    <thead>
+                        <tr>
+                          <th class="duplicates-header"><span ng-bind="::'CANDIDATE.FULL_NAME' | translate"></span></th>
+                          <th class="duplicates-header"><span ng-bind="::'CANDIDATE.POSITION' | translate"></span></th>
+                          <th class="duplicates-header"><span ng-bind="::'COMMON.LOCATION' | translate"></span></th>
+                          <th class="duplicates-header"><span ng-bind="::'COMMON.LEVEL' | translate"></span></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-click="viewCandidate(duplicate)" class="duplicate-row-link" ng-repeat="duplicate in duplicates">
+                          <td><span ng-bind="::(duplicate.lastName+' '+duplicate.firstName)"></span></td>
+                          <td><span ng-bind="::duplicate.positionDesired"></span></td>
+                          <td><span ng-bind="::duplicate.city.title"></span></td>
+                          <td><span ng-bind="::duplicate.level.title"></span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <a ng-click="forceSaveCandidate(Candidate)" class="button alert force-save-button">
+                      <span ng-bind="::'COMMON.FORCE_SAVE' | translate"></span>
+                    </a>
+                  </div>
+               <div class="grid-block">                 
+                  <div class="medium-4 grid-block">
+                     <fieldset>
+                        <input type="text" ng-model="candidate.firstName" placeholder="{{::'COMMON.FIRST' | translate}}" name="firstName" validator="required, maxlength=50, letters">
+                        <input type="text" ng-model="candidate.middleName" placeholder="{{::'COMMON.MIDDLE' | translate}}" name="middleName" validator="maxlength=50, letters">
+                        <input type="text" ng-model="candidate.lastName" placeholder="{{::'COMMON.LAST' | translate}}" name="lastName" validator="required, maxlength=50, letters">
+                        <ul class="some-change">
+                           <li>
+                              <input ng-model="candidate.isMale" name="Male" ng-value="true" id="male" type="radio">
+                              <label for="male" ng-bind="::'COMMON.MALE' | translate"></label>
+                           </li>
+                           <li>
+                              <input ng-model="candidate.isMale" name="Female" ng-value="false" id="female" type="radio">
+                              <label for="female" ng-bind="::'COMMON.FEMALE' | translate"></label>
+                           </li>
+                        </ul>
+                        <input type="tel" placeholder="{{::'COMMON.BIRTH' | translate}}" class="input-date" ng-model="candidate.birthDate" datetime-picker date-format="dd-MM-yyyy" close-on-select="true" date-only ui-mask="99-99-9999" ui-mask-placeholder ui-mask-placeholder-char="_" name="candidateName" model-view-value="true" validator="date" />
+                        <language-skills selected-skills="candidate.convertedLanguageSkills"></language-skills>
+                        <oi-select class="multiple-select"
+                                    oi-options="city.id as city.title for city in locationsSort(thesaurus.city) track by city.id" 
+                                    ng-model="candidate.cityId"
+                                    placeholder="{{::'COMMON.LOCATION' | translate}}">
+                        </oi-select>
+                     </fieldset>
+                  </div>
+                  <div class="medium-4 grid-block">
+                     <fieldset>
+                        <oi-select class="multiple-select"
+                                   oi-options="industry.id as industry.title
+                                               for industry in thesaurus.industry
+                                               | orderBy : 'title'"
+                                   ng-model="candidate.industryId"
+                                   oi-select-options="{ cleanModel: true }"
+                                   placeholder="{{::'COMMON.INDUSTRY' | translate}}"
+                                   name="vacancyIndustry"
+                                   validator="required">
+                        </oi-select>
+                        <oi-select class="multiple-select"
+                                   oi-options="level.id as level.title for level in thesaurus.level | orderBy : 'title'"
+                                   ng-model="candidate.levelId"
+                                   oi-select-options="{ cleanModel: true }"
+                                   placeholder="{{::'COMMON.LEVEL' | translate}}">
+                        </oi-select>
+                        <input type="text" ng-model="candidate.positionDesired" placeholder="{{::'CANDIDATE.DESIRED_POSITION' | translate}}">
+                        <div class="grid-block">
+                           <div class="medium-6 grid-block validation-line-break">
+                              <input ng-model="candidate.salaryDesired" placeholder="{{::'CANDIDATE.DESIRED_SALARY' | translate}}" type="text" name="salary" , validator="counter=1000000" ui-mask="9?9?9?9?9?9?9?" ui-mask-placeholder ui-mask-placeholder-char="space" counter-error-message="{{::'ERRORS.COUNTER' | translate:'{count: 1000000}'}}"> </div>
+                           <div class="medium-6 grid-block validation-line-break">
+                              <oi-select class="multiple-select"
+                                         oi-options="currency.id as currency.title
+                                                    for currency in thesaurus.currency
+                                                    | orderBy : 'title'"
+                                         ng-model="candidate.currencyId"
+                                         oi-select-options="{ cleanModel: true }"
+                                         placeholder="{{::'COMMON.CURRENCY' | translate}}"
+                                         name="candidateCurrency"
+                                         validator="required"
+                                         is-need-required="{{!!candidate.salaryDesired}}">
+                              </oi-select>
+                           </div>
+                        </div>
+                        <oi-select class="multiple-select"
+                                   oi-options="typeOfEmployment.id as typeOfEmployment.title
+                                              for typeOfEmployment in thesaurus.typeOfEmployment
+                                              | orderBy : 'title'"
+                                   ng-model="candidate.typeOfEmployment"
+                                   oi-select-options="{ cleanModel: true }"
+                                   placeholder="{{::'COMMON.TYPE_OF_EMPLOYMENT' | translate}}">
+                        </oi-select>
+                        <label>Experience</label>
+                        <div class="grid-block">
+                           <div class="medium-6 grid-block validation-line-break">
+                              <input placeholder="{{::'COMMON.YEARS' | translate}}" type="text" ng-model='candidate.experienceYears' name="expYears" validator="counter=50" ui-mask="9?9?" ui-mask-placeholder ui-mask-placeholder-char="space" counter-error-message="{{::'ERRORS.COUNTER' | translate:'{count: 50}'}}"> </div>
+                           <div class="medium-6 grid-block validation-line-break">
+                              <input placeholder="{{::'COMMON.MONTHS' | translate}}" type="text" ng-model="candidate.experienceMonths" name="expMonths" validator="counter=11" ui-mask="9?9?" ui-mask-placeholder ui-mask-placeholder-char="space" counter-error-message="{{::'ERRORS.COUNTER' | translate:'{count: 11}'}}"> </div>
+                        </div>
+                        <input id="relocationAgreement" type="checkbox" ng-model="candidate.relocationAgreement">
+                        <label for="relocateAgreement" ng-bind="::'CANDIDATE.READY_TO_RELOCATE' | translate"></label>
+                        <div class="grid-block" ng-if="candidate.relocationAgreement">
+                           <oi-select ng-model="candidate.convertedRelocationPlaces"
+                                      oi-options="{country: location.country, city: location.city}
+                                          as location.city.title || location.country.title 
+                                          group by location.country.title for location in locations
+                                          | orderBy : 'country.title + \'|\' + city.title'"
+                                      multiple>
+                           </oi-select>
+                        </div>
+                     </fieldset>
+                  </div>
+                  <div class="medium-4 grid-block">
+                     <fieldset>
+                        <div zf-open="basicModal"  ng-class="candidate.photo ? 'profile-photo-container' : 'profile-photo'">
+                           <span zf-open="basicModal" ng-hide="candidate.photo" class="upload-title">Upload Photo</span>
+                           <img alt="Candidate photo" class="candidate-photo" zf-open="basicModal" ng-if="candidate.photo" ng-src="{{candidate.photo.filePath | botUrl}}">
+                        </div>
+                        <div class="uploader-photo" zf-modal="" id="basicModal">
+                           <div class="grid-block upload-image-container">
+                              <div class="medium-8 grid-block no-wrap">
+                                 <div class="grid-block">
+                                    <input id="photoUpload" class="upload-input" accept=".bmp,.jpg,.png,.jpeg" type="file" nv-file-select="" uploader="imageUploader">
+                                 </div>
+                                 <div class="grid-block">
+                                    <div class="medium-6 grid-block">
+                                       <div class="" ng-repeat="item in imageUploader.queue">
+                                          <div ng-show="imageUploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+                                       </div>
+                                    </div>
+                                    <div class="medium-6 grid-block"> <a ng-hide="!imageUploader.queue.length" class="remove-item" ng-click="clearUploaderQueue(imageUploader, '#photoUpload')"><i class="foundicon-remove general-icon"></i></a> </div>
+                                 </div>
+                              </div>
+                              <div class="medium-4 grid-block"> <a class="upload-button" href="#" ng-click="imageUploader.uploadAll()"><span ng-bind="::'COMMON.UPLOAD' | translate"></span></a> </div>
+                           </div>
+                        </div>
+                        <phones class="add-phone-number" ng-model="candidate.phoneNumbers"></phones>
+                        <input ng-model="candidate.email" type="text" placeholder="E-mail" name="candidateEmail" validator="email">
+                        <input type="text" placeholder="Skype" ng-model=candidate.skype name="candidateSkype" validator="minlength=6, maxlength=32">
+                        <oi-select class="multiple-select"
+                                   oi-options="source.id as source.title for source in thesaurus.source | orderBy : 'title'"
+                                   ng-model="candidate.mainSourceId"
+                                   oi-select-options="{ cleanModel: true }"
+                                   placeholder="{{::'COMMON.MAIN_SOURCE' | translate}}">
+                        </oi-select>
+                        
+                        <input type="text" placeholder="Recomendator" ng-model="candidate.recomendator" name="candidateRecomendator" validator="minlength=6, maxlength=100">
+                     </fieldset>
+                  </div>
+               </div>
+               <hr>
+               <div class="grid-block" ng-repeat="socialRow in socialGroups track by $index">
+                  <div class="medium-4 grid-block" ng-repeat="social in socialRow">
+                     <fieldset class="social-fieldset">
+                        <input class="social-input" type="text" placeholder="{{::social.socialNetwork.title}}" ng-model="social.path" name="candidateSocial{{$index}}{{social.socialNetwork.title}}" validator="url">
+                     </fieldset>
+                  </div>
+               </div>
+               <hr>
+               <fieldset>
+                  <div class="grid-block">
+                     <div class="medium-6 grid-block technologies-select">
+                        <oi-select class="multiple-select"
+                                   ng-model="candidate.skills"
+                                   oi-options="skill.title for skill in thesaurus.skill | orderBy : 'title'" 
+                                   multiple
+                                   placeholder="{{::'COMMON.SKILLS' | translate}}"
+                                   oi-select-options="{newItem: true, newItemModel: {id: undefined, title: $query}}">
+                        </oi-select>
+                     </div>
+                     <div class="medium-6 grid-block technologies-select">
+                        <oi-select class="multiple-select"
+                                   oi-options="tag.title for tag in thesaurus.tag | orderBy : 'title'"
+                                   ng-model="candidate.tags"
+                                   multiple
+                                   placeholder="{{::'COMMON.TAGS' | translate}}"
+                                   oi-select-options="{newItem: true,  newItemModel: {id: undefined, title: $query}}">
+                        </oi-select>
+                     </div>
+                  </div>                                               
+               </fieldset>
+               <hr>
+               <fieldset>
+                  <text-angular placeholder="{{::'COMMON.DESCRIPTION' | translate}}" name="htmlcontent" ng-model="candidate.description" ta-text-editor-class="custom-form-content" ta-html-editor-class="custom-form-content" ta-focussed-class="custom-focussed" ta-toolbar-class="custom-toolbar"
+                   ta-toolbar-group-class="custom-btn-group" ta-toolbar-button-class="btn btn-default" ta-toolbar-active-button-class="custom-active"></text-angular>
+               </fieldset>
+               <div class="grid-block">
+                  <div class="medium-6 grid-block">
+                     <fieldset>
+                        <input id="filesUploader" type="file" nv-file-select multiple="" uploader="filesUploader">
+                        <table class="upload-table" ng-hide="!candidate.files.length">
+                           <caption ng-bind="::'COMMON.ADDED_FILES' | translate">:</caption>
+                           <thead>
+                              <tr>
+                                 <th>№</th>
+                                 <th ng-bind="::'COMMON.NAME' | translate"></th>
+                                 <th ng-bind="::'COMMON.SIZE' | translate"></th>
+                                 <th></th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr ng-repeat="item in candidate.files track by $index">
+                                 <td ng-bind="::$index+1"></td>
+                                 <td>
+                                    <a target="_blank" href="{{item.filePath | botUrl}}" ng-bind="::item.description"></a>
+                                 </td>
+                                 <td ng-bind="::item.fileSize"></td>
+                                 <td><a class="remove-item" ng-click="addFilesForRemove(item)"><i class="foundicon-remove general-icon"></i></a></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <table class="upload-table" ng-hide="!filesUploader.queue.length">
+                           <thead>
+                              <tr>
+                                 <th>№</th>
+                                 <th ng-bind="::'COMMON.NAME' | translate"></th>
+                                 <th ng-bind="::'COMMON.SIZE' | translate"></th>
+                                 <th></th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr ng-repeat="item in filesUploader.queue">
+                                 <td ng-bind="::$index+1"></td>
+                                 <td ng-bind="::item.file.name"></td>
+                                 <td ng-bind="::item.file.size"></td>
+                                 <td><a class="remove-item" ng-click="item.remove()"><i class="foundicon-remove general-icon"></i></a></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </fieldset>
+                  </div>
+                  <div class="medium-6 grid-block"></div>
+               </div>
+
+            </form>
+         </div>
+      </div>
+   </div>
+   <div class="medium-3 grid-block vertical-sidebar">
+      <div class="vertical medium-horizontal grid-block">
+         <div ng-if="candidate.id" class="sidebar">
+            <events responsibles="responsibles" vacancies="vacancies" candidates="candidates" event-types="thesaurus.eventtype" source="candidate" candidate-id="candidate.id" type="list-only" events="cloneCandidateEvents" save="saveEvent" remove="removeEvent"></events>
+         </div>
+         <div class="sidebar">
+            <comments comments="comments" save="saveComment" remove="removeComment" type="comment"></comments>
+         </div>
+      </div>
+   </div>
+</div>

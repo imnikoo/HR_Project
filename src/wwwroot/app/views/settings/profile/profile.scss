@@ -1,0 +1,40 @@
+@import '../../../common.scss';
+@import '../../../directives/candidate-vacancy-info/candidate-vacancy-info.scss';
+.profile-button {
+   width: 50%;
+   margin-bottom: $rem-base * 0.25;
+}
+.userProfile {
+   @include card-container();
+   width: 99%;
+   margin: $rem-base*0.5;
+   height: auto;
+   min-width: $rem-base*38;
+   @include breakpoint(medium down) {
+      width: 98%;
+   }
+   min-height: $rem-base*15;
+}
+
+.user-profile-photo {
+   background-color: #dfdfdf;
+   background-size: 100%;
+   width: 90%;
+   height: 200px;
+   margin-bottom: $rem-base;
+   padding-bottom: 30%;
+   padding-top: 30%;
+   text-align: center;
+}
+.profile-info i {
+   font-size: $rem-base * 1.5;
+   padding-left: $rem-base;
+}
+
+.profile-contacts {
+   width: 100%;
+}
+.buttons-container {
+   display: flex;
+   flex-direction: column;
+}
